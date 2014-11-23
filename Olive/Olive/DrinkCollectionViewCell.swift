@@ -11,22 +11,38 @@ import CoreData
 
 class DrinkCollectionViewCell: UICollectionViewCell {
 	
-	@IBOutlet weak var drinkName: UILabel!
-	@IBOutlet weak var drinkMatch: UILabel!
-	@IBOutlet weak var icon: UIImageView!
-	@IBOutlet var drink: Drink? {
-		didSet {
-            if (drink != nil){
-                drinkName.text = drink!.name
-                drinkMatch.text = "\(matchAccuracyForDrink(drink!))% match"
-                icon.image = UIImage(data: drink!.image)
-            } else {
-                println("drink is nil!")
-            }
-	
-		}
-	}
+    var drinkName: UILabel
+    var drinkMatch: UILabel
+    var icon: UIImageView
 
+
+    override init(frame: CGRect) {
+        drinkName = UILabel()
+        drinkMatch = UILabel()
+        icon = UIImageView()
+        super.init(frame: frame)
+        
+        icon = UIImageView(frame: CGRectMake(contentView.frame.origin.x, contentView.frame.origin.y, contentView.frame.width, contentView.frame.height))
+        contentView.addSubview(icon)
+        let blur = UIBlurEffect(style: UIBlurEffectStyle.Light)
+        let blurView = UIVisualEffectView(effect: blur)
+        blurView.frame = CGRectMake(contentView.frame.origin.x, contentView.frame.origin.y, contentView.frame.width, 40)
+        contentView.addSubview(blurView)
+        drinkName = UILabel(frame: CGRectMake(0, 0, contentView.frame.width, 20))
+        drinkName.textAlignment = NSTextAlignment.Center
+        contentView.addSubview(drinkName)
+        drinkMatch = UILabel(frame: CGRectMake(0, 20, contentView.frame.width, 20))
+        drinkMatch.textAlignment = NSTextAlignment.Center
+        contentView.addSubview(drinkMatch)
+    }
+    
+    required init(coder aDecoder: NSCoder) {
+        drinkName = UILabel()
+        drinkMatch = UILabel()
+        icon = UIImageView()
+        super.init(coder: aDecoder)
+    }
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

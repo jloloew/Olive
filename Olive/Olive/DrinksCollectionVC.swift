@@ -11,9 +11,9 @@ import CoreData
 
 let reuseIdentifier = "DrinkCells"
 
-class DrinksCollectionViewController: UIViewController, NSFetchedResultsControllerDelegate, UICollectionViewDelegate, UICollectionViewDataSource{
+class DrinksCollectionViewController: UICollectionViewController, NSFetchedResultsControllerDelegate, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
 	
-    @IBOutlet var collectionView: UICollectionView!
+//    @IBOutlet var collectionView: UICollectionView!
     
 	var fetchedResultsController = NSFetchedResultsController()
 	let managedObjectContext = (UIApplication.sharedApplication().delegate as AppDelegate).managedObjectContext!
@@ -23,7 +23,7 @@ class DrinksCollectionViewController: UIViewController, NSFetchedResultsControll
         DrinkRecipesParser().hitIt()
         
         // Register cell classes
-        self.collectionView.registerClass(UICollectionViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)
+        self.collectionView.registerClass(DrinkCollectionViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)
 
         // Do any additional setup after loading the view.
 		let fetchRequest = NSFetchRequest(entityName: "Drink")
@@ -37,6 +37,17 @@ class DrinksCollectionViewController: UIViewController, NSFetchedResultsControll
 		if error != nil {
 			println("\(__FUNCTION__) \(__LINE__) \(error)")
 		}
+        
+        let layout: UICollectionViewFlowLayout = UICollectionViewFlowLayout()
+        layout.sectionInset = UIEdgeInsets(top: 20, left: 10, bottom: 10, right: 10)
+        layout.itemSize = CGSize(width: 90, height: 90)
+        collectionView = UICollectionView(frame: self.view.frame, collectionViewLayout: layout)
+        
+        collectionView.dataSource = self
+        collectionView.delegate = self
+        collectionView.registerClass(DrinkCollectionViewCell.self, forCellWithReuseIdentifier: "DrinkCells")
+        collectionView.backgroundColor = UIColor.blackColor()
+        self.view.addSubview(collectionView)
     }
 
     /*
@@ -51,46 +62,33 @@ class DrinksCollectionViewController: UIViewController, NSFetchedResultsControll
 
     // MARK: UICollectionViewDataSource
 
-    func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
+    override func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
         return 1
     }
 
 
-    func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+    override func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         DrinkRecipesParser().hitIt()
         var ret = fetchedResultsController.fetchedObjects?.count ?? 0
         println(ret)
         return ret
     }
 
-    func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
+    override func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         DrinkRecipesParser().hitIt()
 
-        var cell = collectionView.dequeueReusableCellWithReuseIdentifier(reuseIdentifier, forIndexPath: indexPath) as UICollectionViewCell
-    
-        // Configure the cell
-//		cell.drink = fetchedResultsController.fetchedObjects?[indexPath.item] as Drink
-        println((fetchedResultsController.fetchedObjects?[indexPath.item] as Drink).name)
-        var background = UIView(frame: CGRectMake(cell.frame.origin.x, cell.frame.origin.y, cell.frame.width, cell.frame.height))
-        background.backgroundColor = UIColor.redColor()
-        cell.addSubview(background)
-
-        var image = UIImageView(frame: CGRectMake(background.frame.origin.x, background.frame.origin.y, background.frame.width, background.frame.height))
+        let cell = collectionView.dequeueReusableCellWithReuseIdentifier("DrinkCells", forIndexPath: indexPath) as DrinkCollectionViewCell
+        
+        
         var data = (fetchedResultsController.fetchedObjects?[indexPath.item] as Drink).icon
-        image.image = UIImage(data:data)
-        background.addSubview(image)
-        var blur = UIBlurEffect(style: UIBlurEffectStyle.Light)
-        var blurView = UIVisualEffectView(effect: blur)
-        blurView.frame = CGRectMake(background.frame.origin.x, background.frame.origin.y, background.frame.width, 40)
-        background.addSubview(blurView)
-        var titleLabel = UILabel(frame: CGRectMake(0, 0, background.frame.width, 20))
-        titleLabel.text = (fetchedResultsController.fetchedObjects?[indexPath.item] as Drink).name
-        titleLabel.textAlignment = NSTextAlignment.Center
-        background.addSubview(titleLabel)
-        var percentLabel = UILabel(frame: CGRectMake(0, 20, background.frame.width, 20))
-        percentLabel.text = "\(matchAccuracyForDrink(fetchedResultsController.fetchedObjects?[indexPath.item] as Drink))%"
-        percentLabel.textAlignment = NSTextAlignment.Center
-        background.addSubview(percentLabel)
+        cell.icon.image = UIImage(data:data)!
+        println(cell.icon.image)
+
+        cell.drinkName.text = (fetchedResultsController.fetchedObjects?[indexPath.item] as Drink).name
+        cell.drinkName.textColor = UIColor.whiteColor()
+        cell.drinkMatch.text = "\(matchAccuracyForDrink(fetchedResultsController.fetchedObjects?[indexPath.item] as Drink))% match"
+        println("\([indexPath.item]) contains \(cell.drinkName.text)")
+        cell.backgroundColor = UIColor.redColor()
         
         return cell
     }
@@ -98,7 +96,7 @@ class DrinksCollectionViewController: UIViewController, NSFetchedResultsControll
     // MARK: UICollectionViewDelegate
 
     // Uncomment this method to specify if the specified item should be highlighted during tracking
-    func collectionView(collectionView: UICollectionView, shouldHighlightItemAtIndexPath indexPath: NSIndexPath) -> Bool {
+    override func collectionView(collectionView: UICollectionView, shouldHighlightItemAtIndexPath indexPath: NSIndexPath) -> Bool {
         return false
     }
 
@@ -110,14 +108,18 @@ class DrinksCollectionViewController: UIViewController, NSFetchedResultsControll
     func collectionView(collectionView: UICollectionView,
         layout collectionViewLayout: UICollectionViewLayout,
         sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
-           return CGSizeMake((self.view.frame.width/2)-50.0, (self.view.frame.width/2)-50.0)
+//            collectionViewLayout.invalidateLayout()
+           return CGSizeMake((self.view.frame.width/3)-7.0, (self.view.frame.width/3)-7.0)
     }
     
     func collectionView(collectionView: UICollectionView,
         layout collectionViewLayout: UICollectionViewLayout,
         insetForSectionAtIndex section: Int) -> UIEdgeInsets {
+//            collectionViewLayout.invalidateLayout()
             return UIEdgeInsetsMake(0, 0, 0, 0)
     }
+    
+
     /*
     // Uncomment these methods to specify if an action menu should be displayed for the specified item, and react to actions performed on the item
     override func collectionView(collectionView: UICollectionView, shouldShowMenuForItemAtIndexPath indexPath: NSIndexPath) -> Bool {
