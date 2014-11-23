@@ -14,6 +14,10 @@ class Drink: NSManagedObject {
 
     @NSManaged var recipe: String
     @NSManaged var tips: String
+    @NSManaged var name: String
+    @NSManaged var icon: NSData
+    @NSManaged var image: NSData
+    @NSManaged var userAdded: NSNumber
     @NSManaged var ingredients: NSSet
 
 }

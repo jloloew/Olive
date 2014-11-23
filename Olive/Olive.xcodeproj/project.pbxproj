@@ -18,11 +18,11 @@
 		707A7CDC1A212DEA004C1463 /* OliveTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 707A7CDB1A212DEA004C1463 /* OliveTests.swift */; };
 		707A7CE61A212E81004C1463 /* FluidViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 707A7CE51A212E81004C1463 /* FluidViewController.swift */; };
 		707A7CE81A214F9D004C1463 /* CoreMotion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 707A7CE71A214F9D004C1463 /* CoreMotion.framework */; };
+		B83B75A81A2184C700A17ECD /* Drink.swift in Sources */ = {isa = PBXBuildFile; fileRef = B83B75A71A2184C700A17ECD /* Drink.swift */; };
 		B8C4E2291A21639700D3577A /* Olive.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = B8C4E2271A21639700D3577A /* Olive.xcdatamodeld */; };
 		B8C4E22B1A21643D00D3577A /* IngredientsTableVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8C4E22A1A21643D00D3577A /* IngredientsTableVC.swift */; };
 		B8C4E22D1A21645100D3577A /* Ingredient.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8C4E22C1A21645100D3577A /* Ingredient.swift */; };
-		B8C4E22F1A21645100D3577A /* Drink.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8C4E22E1A21645100D3577A /* Drink.swift */; };
-		B8C4E2311A21710B00D3577A /* DrinksTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8C4E2301A21710B00D3577A /* DrinksTableViewController.swift */; };
+		B8C4E2311A21710B00D3577A /* DrinksTableVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8C4E2301A21710B00D3577A /* DrinksTableVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,11 +51,11 @@
 		707A7CDB1A212DEA004C1463 /* OliveTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OliveTests.swift; sourceTree = "<group>"; };
 		707A7CE51A212E81004C1463 /* FluidViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FluidViewController.swift; path = ../FluidViewController.swift; sourceTree = "<group>"; };
 		707A7CE71A214F9D004C1463 /* CoreMotion.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMotion.framework; path = System/Library/Frameworks/CoreMotion.framework; sourceTree = SDKROOT; };
+		B83B75A71A2184C700A17ECD /* Drink.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Drink.swift; sourceTree = "<group>"; };
 		B8C4E2281A21639700D3577A /* Olive.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Olive.xcdatamodel; sourceTree = "<group>"; };
 		B8C4E22A1A21643D00D3577A /* IngredientsTableVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IngredientsTableVC.swift; sourceTree = "<group>"; };
 		B8C4E22C1A21645100D3577A /* Ingredient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Ingredient.swift; sourceTree = "<group>"; };
-		B8C4E22E1A21645100D3577A /* Drink.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Drink.swift; sourceTree = "<group>"; };
-		B8C4E2301A21710B00D3577A /* DrinksTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DrinksTableViewController.swift; sourceTree = "<group>"; };
+		B8C4E2301A21710B00D3577A /* DrinksTableVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DrinksTableVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -124,10 +124,10 @@
 				707A7CCC1A212DE9004C1463 /* Images.xcassets */,
 				707A7CCE1A212DE9004C1463 /* LaunchScreen.xib */,
 				B8C4E2271A21639700D3577A /* Olive.xcdatamodeld */,
-				B8C4E22E1A21645100D3577A /* Drink.swift */,
+				B83B75A71A2184C700A17ECD /* Drink.swift */,
 				B8C4E22C1A21645100D3577A /* Ingredient.swift */,
 				B8C4E22A1A21643D00D3577A /* IngredientsTableVC.swift */,
-				B8C4E2301A21710B00D3577A /* DrinksTableViewController.swift */,
+				B8C4E2301A21710B00D3577A /* DrinksTableVC.swift */,
 				707A7CC01A212DE9004C1463 /* Supporting Files */,
 			);
 			path = Olive;
@@ -265,9 +265,9 @@
 				B8C4E2291A21639700D3577A /* Olive.xcdatamodeld in Sources */,
 				B8C4E22D1A21645100D3577A /* Ingredient.swift in Sources */,
 				707A7CC31A212DE9004C1463 /* AppDelegate.swift in Sources */,
-				B8C4E2311A21710B00D3577A /* DrinksTableViewController.swift in Sources */,
+				B8C4E2311A21710B00D3577A /* DrinksTableVC.swift in Sources */,
 				B8C4E22B1A21643D00D3577A /* IngredientsTableVC.swift in Sources */,
-				B8C4E22F1A21645100D3577A /* Drink.swift in Sources */,
+				B83B75A81A2184C700A17ECD /* Drink.swift in Sources */,
 				707A7CE61A212E81004C1463 /* FluidViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
