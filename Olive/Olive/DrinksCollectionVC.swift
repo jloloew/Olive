@@ -9,7 +9,7 @@
 import UIKit
 import CoreData
 
-let reuseIdentifier = "DrinkCell"
+let reuseIdentifier = "DrinkCells"
 
 class DrinksCollectionViewController: UIViewController, NSFetchedResultsControllerDelegate, UICollectionViewDelegate, UICollectionViewDataSource{
 	
@@ -71,18 +71,25 @@ class DrinksCollectionViewController: UIViewController, NSFetchedResultsControll
         // Configure the cell
 //		cell.drink = fetchedResultsController.fetchedObjects?[indexPath.item] as Drink
         println((fetchedResultsController.fetchedObjects?[indexPath.item] as Drink).name)
-        var background = UIView(frame: CGRectMake(cell.frame.origin.x, cell.frame.origin.y, 100.0, 100.0))
+        var background = UIView(frame: CGRectMake(cell.frame.origin.x, cell.frame.origin.y, cell.frame.width, cell.frame.height))
         background.backgroundColor = UIColor.redColor()
         cell.addSubview(background)
 
         var image = UIImageView(frame: CGRectMake(background.frame.origin.x, background.frame.origin.y, background.frame.width, background.frame.height))
-         image.image = UIImage(data: (fetchedResultsController.fetchedObjects?[indexPath.item] as Drink).image)
+        var data = (fetchedResultsController.fetchedObjects?[indexPath.item] as Drink).icon
+        image.image = UIImage(data:data)
         background.addSubview(image)
+        var blur = UIBlurEffect(style: UIBlurEffectStyle.Light)
+        var blurView = UIVisualEffectView(effect: blur)
+        blurView.frame = CGRectMake(background.frame.origin.x, background.frame.origin.y, background.frame.width, 40)
+        background.addSubview(blurView)
         var titleLabel = UILabel(frame: CGRectMake(0, 0, background.frame.width, 20))
         titleLabel.text = (fetchedResultsController.fetchedObjects?[indexPath.item] as Drink).name
+        titleLabel.textAlignment = NSTextAlignment.Center
         background.addSubview(titleLabel)
         var percentLabel = UILabel(frame: CGRectMake(0, 20, background.frame.width, 20))
         percentLabel.text = "\(matchAccuracyForDrink(fetchedResultsController.fetchedObjects?[indexPath.item] as Drink))%"
+        percentLabel.textAlignment = NSTextAlignment.Center
         background.addSubview(percentLabel)
         
         return cell
@@ -100,6 +107,17 @@ class DrinksCollectionViewController: UIViewController, NSFetchedResultsControll
         return false
     }
 
+    func collectionView(collectionView: UICollectionView,
+        layout collectionViewLayout: UICollectionViewLayout,
+        sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
+           return CGSizeMake((self.view.frame.width/2)-50.0, (self.view.frame.width/2)-50.0)
+    }
+    
+    func collectionView(collectionView: UICollectionView,
+        layout collectionViewLayout: UICollectionViewLayout,
+        insetForSectionAtIndex section: Int) -> UIEdgeInsets {
+            return UIEdgeInsetsMake(0, 0, 0, 0)
+    }
     /*
     // Uncomment these methods to specify if an action menu should be displayed for the specified item, and react to actions performed on the item
     override func collectionView(collectionView: UICollectionView, shouldShowMenuForItemAtIndexPath indexPath: NSIndexPath) -> Bool {

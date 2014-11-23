@@ -76,8 +76,9 @@ class DrinkRecipesParser {
 				} else {
                     println(value)
                     var image = UIImage(named: value)
+                    println(image)
                     if(image != nil){
-                        currentDrink.icon = UIImagePNGRepresentation(image)
+                        currentDrink.icon = UIImagePNGRepresentation(image!)
                     } else {
                         currentDrink.icon = UIImagePNGRepresentation(UIImage(named: "GinAndTonic.jpg"))
                     }
