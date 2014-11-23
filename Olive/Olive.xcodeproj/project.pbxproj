@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		707A7CC31A212DE9004C1463 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 707A7CC21A212DE9004C1463 /* AppDelegate.swift */; };
-		707A7CC61A212DE9004C1463 /* Olive.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 707A7CC41A212DE9004C1463 /* Olive.xcdatamodeld */; };
 		707A7CC81A212DE9004C1463 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 707A7CC71A212DE9004C1463 /* ViewController.swift */; };
 		707A7CCB1A212DE9004C1463 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 707A7CC91A212DE9004C1463 /* Main.storyboard */; };
 		707A7CCD1A212DE9004C1463 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 707A7CCC1A212DE9004C1463 /* Images.xcassets */; };
@@ -16,6 +15,10 @@
 		707A7CDC1A212DEA004C1463 /* OliveTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 707A7CDB1A212DEA004C1463 /* OliveTests.swift */; };
 		707A7CE61A212E81004C1463 /* FluidViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 707A7CE51A212E81004C1463 /* FluidViewController.swift */; };
 		707A7CE81A214F9D004C1463 /* CoreMotion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 707A7CE71A214F9D004C1463 /* CoreMotion.framework */; };
+		B8C4E2291A21639700D3577A /* Olive.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = B8C4E2271A21639700D3577A /* Olive.xcdatamodeld */; };
+		B8C4E22B1A21643D00D3577A /* IngredientsTableVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8C4E22A1A21643D00D3577A /* IngredientsTableVC.swift */; };
+		B8C4E22D1A21645100D3577A /* Ingredient.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8C4E22C1A21645100D3577A /* Ingredient.swift */; };
+		B8C4E22F1A21645100D3577A /* Drink.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8C4E22E1A21645100D3577A /* Drink.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -32,7 +35,6 @@
 		707A7CBD1A212DE9004C1463 /* Olive.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Olive.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		707A7CC11A212DE9004C1463 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		707A7CC21A212DE9004C1463 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		707A7CC51A212DE9004C1463 /* Olive.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Olive.xcdatamodel; sourceTree = "<group>"; };
 		707A7CC71A212DE9004C1463 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		707A7CCA1A212DE9004C1463 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		707A7CCC1A212DE9004C1463 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
@@ -42,6 +44,10 @@
 		707A7CDB1A212DEA004C1463 /* OliveTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OliveTests.swift; sourceTree = "<group>"; };
 		707A7CE51A212E81004C1463 /* FluidViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FluidViewController.swift; path = ../FluidViewController.swift; sourceTree = "<group>"; };
 		707A7CE71A214F9D004C1463 /* CoreMotion.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMotion.framework; path = System/Library/Frameworks/CoreMotion.framework; sourceTree = SDKROOT; };
+		B8C4E2281A21639700D3577A /* Olive.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Olive.xcdatamodel; sourceTree = "<group>"; };
+		B8C4E22A1A21643D00D3577A /* IngredientsTableVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IngredientsTableVC.swift; sourceTree = "<group>"; };
+		B8C4E22C1A21645100D3577A /* Ingredient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Ingredient.swift; sourceTree = "<group>"; };
+		B8C4E22E1A21645100D3577A /* Drink.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Drink.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -91,7 +97,10 @@
 				707A7CC91A212DE9004C1463 /* Main.storyboard */,
 				707A7CCC1A212DE9004C1463 /* Images.xcassets */,
 				707A7CCE1A212DE9004C1463 /* LaunchScreen.xib */,
-				707A7CC41A212DE9004C1463 /* Olive.xcdatamodeld */,
+				B8C4E2271A21639700D3577A /* Olive.xcdatamodeld */,
+				B8C4E22E1A21645100D3577A /* Drink.swift */,
+				B8C4E22C1A21645100D3577A /* Ingredient.swift */,
+				B8C4E22A1A21643D00D3577A /* IngredientsTableVC.swift */,
 				707A7CC01A212DE9004C1463 /* Supporting Files */,
 			);
 			path = Olive;
@@ -223,8 +232,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				707A7CC81A212DE9004C1463 /* ViewController.swift in Sources */,
+				B8C4E2291A21639700D3577A /* Olive.xcdatamodeld in Sources */,
+				B8C4E22D1A21645100D3577A /* Ingredient.swift in Sources */,
 				707A7CC31A212DE9004C1463 /* AppDelegate.swift in Sources */,
-				707A7CC61A212DE9004C1463 /* Olive.xcdatamodeld in Sources */,
+				B8C4E22B1A21643D00D3577A /* IngredientsTableVC.swift in Sources */,
+				B8C4E22F1A21645100D3577A /* Drink.swift in Sources */,
 				707A7CE61A212E81004C1463 /* FluidViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -421,6 +433,7 @@
 				707A7CE11A212DEA004C1463 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		707A7CE21A212DEA004C1463 /* Build configuration list for PBXNativeTarget "OliveTests" */ = {
 			isa = XCConfigurationList;
@@ -429,16 +442,17 @@
 				707A7CE41A212DEA004C1463 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
 /* Begin XCVersionGroup section */
-		707A7CC41A212DE9004C1463 /* Olive.xcdatamodeld */ = {
+		B8C4E2271A21639700D3577A /* Olive.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
-				707A7CC51A212DE9004C1463 /* Olive.xcdatamodel */,
+				B8C4E2281A21639700D3577A /* Olive.xcdatamodel */,
 			);
-			currentVersion = 707A7CC51A212DE9004C1463 /* Olive.xcdatamodel */;
+			currentVersion = B8C4E2281A21639700D3577A /* Olive.xcdatamodel */;
 			path = Olive.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
