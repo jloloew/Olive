@@ -11,20 +11,15 @@ import CoreData
 
 class DrinkCollectionViewCell: UICollectionViewCell {
 	
-	@IBOutlet weak var drinkName: UILabel!
-	@IBOutlet weak var drinkMatch: UILabel!
-	@IBOutlet weak var icon: UIImageView!
-	@IBOutlet var drink: Drink! {
+	var drinkName: UILabel!
+	var drinkMatch: UILabel!
+	var icon: UIImageView!
+	var drink: Drink! {
 		didSet {
 			drinkName.text = drink.name
 			drinkMatch.text = "\(matchAccuracyForDrink(drink))% match"
 			icon.image = UIImage(data: drink.image)
 		}
 	}
-
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
-    }
 	
 }

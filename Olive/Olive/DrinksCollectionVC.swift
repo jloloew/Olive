@@ -20,10 +20,12 @@ class DrinksCollectionViewController: UIViewController, NSFetchedResultsControll
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+		
+		DrinkRecipesParser().hitIt() // add coredata filler
+		
         // Register cell classes
         self.collectionView.registerClass(DrinkCollectionViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)
-
+		
         // Do any additional setup after loading the view.
 		let fetchRequest = NSFetchRequest(entityName: "Drink")
 		let sortDescriptor = NSSortDescriptor(key: "name", ascending: true)
@@ -56,7 +58,13 @@ class DrinksCollectionViewController: UIViewController, NSFetchedResultsControll
 
 
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return fetchedResultsController.fetchedObjects?.count ?? 0
+		var retVal: Int
+		if fetchedResultsController.fetchedObjects != nil {
+			retVal = fetchedResultsController.fetchedObjects!.count
+		} else {
+			retVal = 0
+		}
+		return retVal
     }
 
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
