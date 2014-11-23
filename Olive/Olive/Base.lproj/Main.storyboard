@@ -65,7 +65,7 @@
         <!--View Controller-->
         <scene sceneID="SDJ-ku-2PR">
             <objects>
-                <viewController id="0jr-mR-Ero" sceneMemberID="viewController">
+                <viewController id="0jr-mR-Ero" customClass="ViewController" customModule="Olive" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="tMb-qc-6Ls"/>
                         <viewControllerLayoutGuide type="bottom" id="dyk-Ly-auN"/>
@@ -206,6 +206,9 @@
                             </mask>
                         </variation>
                     </view>
+                    <connections>
+                        <outlet property="oliveLabel" destination="pea-bi-WY0" id="nsg-da-dD7"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Zg1-Rr-Fl3" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
