@@ -9,10 +9,13 @@
 import UIKit
 import CoreData
 
-class IngredientsTableViewController: UITableViewController, NSFetchedResultsControllerDelegate {
+class IngredientsTableViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, NSFetchedResultsControllerDelegate {
 	
 	var fetchedResultsController = NSFetchedResultsController()
 	let managedObjectContext = (UIApplication.sharedApplication().delegate as AppDelegate).managedObjectContext!
+	
+//	@IBOutlet var searchDisplayController: UISearchDisplayController!
+	@IBOutlet var tableView: UITableView!
 	
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,6 +34,8 @@ class IngredientsTableViewController: UITableViewController, NSFetchedResultsCon
 		if error != nil {
 			println("\(__FUNCTION__) \(__LINE__) \(error)")
 		}
+		
+		self.tableView.reloadData()
     }
 	
 	func fuckItShipIt_generateData() {
@@ -78,16 +83,17 @@ class IngredientsTableViewController: UITableViewController, NSFetchedResultsCon
 	
     // MARK: - Table view data source
 	
-    override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         return 1
     }
 
-    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return (UIApplication.sharedApplication().delegate as AppDelegate).fetchAllIngredients().count
+     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        let retVal = (UIApplication.sharedApplication().delegate as AppDelegate).fetchAllIngredients().count
+		return retVal
     }
 
-    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("ingredient", forIndexPath: indexPath) as UITableViewCell
+     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCellWithIdentifier("IngredientCell", forIndexPath: indexPath) as UITableViewCell
 		
 		let ingredient = (UIApplication.sharedApplication().delegate as AppDelegate).fetchAllIngredients()[indexPath.item] as Ingredient
         cell.textLabel.text = ingredient.name
@@ -106,7 +112,7 @@ class IngredientsTableViewController: UITableViewController, NSFetchedResultsCon
     */
 	
     // Override to support editing the table view.
-    override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
+     func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
         if editingStyle == .Delete {
             // Delete the row from the data source
             tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
@@ -129,7 +135,7 @@ class IngredientsTableViewController: UITableViewController, NSFetchedResultsCon
     }
 	
     // Override to support rearranging the table view.
-    override func tableView(tableView: UITableView, moveRowAtIndexPath fromIndexPath: NSIndexPath, toIndexPath: NSIndexPath) {
+     func tableView(tableView: UITableView, moveRowAtIndexPath fromIndexPath: NSIndexPath, toIndexPath: NSIndexPath) {
 
     }
 	
