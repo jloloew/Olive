@@ -18,10 +18,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
-		dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0)) {
-			sleep(1) // fuck it ship it
-			DrinkRecipesParser().hitIt() // add coredata filler
-		}
+//        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0)) {
+//			sleep(1) // fuck it ship it
+//			DrinkRecipesParser().hitIt() // add coredata filler
+//            //notification
+//		}
 		
         return true
     }
@@ -145,15 +146,23 @@ func matchAccuracyForDrink(drink: Drink) -> Float {
 			
 			// see if we possess this ingredient
 			for j in ourIngredients {
-				if j == ingredient {
+				if j.name == ingredient.name {
 					sumPosessed += j.importance.floatValue
+
 				}
 			}
 		}
-		
-		return sumPosessed / sumNeeded
+    if(sumNeeded != 0){
+        return sumPosessed/sumNeeded
+    } else {
+        return 0
+    }
+//        var float = sumPosessed / sumNeeded
+//        println("\(float)")
+//		return float
+
 	}
 
-func ==(lhs: Ingredient, rhs: Ingredient) -> Bool {
-	return lhs.name == rhs.name
-}
+//func ==(lhs: Ingredient, rhs: Ingredient) -> Bool {
+//	return lhs.name == rhs.name
+//}

@@ -27,7 +27,7 @@ EndDrink
 
 NewDrink:
 name:Rum & Coke
-icon:RunAndCoke.jpg
+icon:RumAndCoke.jpg
 ingredients:
 Ingredient:
 name:Rum

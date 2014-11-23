@@ -14,11 +14,16 @@ class DrinkCollectionViewCell: UICollectionViewCell {
 	@IBOutlet weak var drinkName: UILabel!
 	@IBOutlet weak var drinkMatch: UILabel!
 	@IBOutlet weak var icon: UIImageView!
-	@IBOutlet var drink: Drink! {
+	@IBOutlet var drink: Drink? {
 		didSet {
-			drinkName.text = drink.name
-			drinkMatch.text = "\(matchAccuracyForDrink(drink))% match"
-			icon.image = UIImage(data: drink.image)
+            if (drink != nil){
+                drinkName.text = drink!.name
+                drinkMatch.text = "\(matchAccuracyForDrink(drink!))% match"
+                icon.image = UIImage(data: drink!.image)
+            } else {
+                println("drink is nil!")
+            }
+	
 		}
 	}
 
