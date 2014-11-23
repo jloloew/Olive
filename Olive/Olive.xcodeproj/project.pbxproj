@@ -23,6 +23,7 @@
 		B83B75AA1A21A70200A17ECD /* DrinksCollectionVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B83B75A91A21A70200A17ECD /* DrinksCollectionVC.swift */; };
 		B83B75AD1A21AA5300A17ECD /* DrinkCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B83B75AB1A21AA5300A17ECD /* DrinkCollectionViewCell.swift */; };
 		B83B75AE1A21AA5300A17ECD /* DrinkCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B83B75AC1A21AA5300A17ECD /* DrinkCollectionViewCell.xib */; };
+		B83B75B01A21C30000A17ECD /* drinkrecipes.txt in Resources */ = {isa = PBXBuildFile; fileRef = B83B75AF1A21C30000A17ECD /* drinkrecipes.txt */; };
 		B8C4E2291A21639700D3577A /* Olive.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = B8C4E2271A21639700D3577A /* Olive.xcdatamodeld */; };
 		B8C4E22B1A21643D00D3577A /* IngredientsTableVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8C4E22A1A21643D00D3577A /* IngredientsTableVC.swift */; };
 		B8C4E22D1A21645100D3577A /* Ingredient.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8C4E22C1A21645100D3577A /* Ingredient.swift */; };
@@ -59,6 +60,7 @@
 		B83B75A91A21A70200A17ECD /* DrinksCollectionVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DrinksCollectionVC.swift; sourceTree = "<group>"; };
 		B83B75AB1A21AA5300A17ECD /* DrinkCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DrinkCollectionViewCell.swift; sourceTree = "<group>"; };
 		B83B75AC1A21AA5300A17ECD /* DrinkCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DrinkCollectionViewCell.xib; sourceTree = "<group>"; };
+		B83B75AF1A21C30000A17ECD /* drinkrecipes.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = drinkrecipes.txt; sourceTree = "<group>"; };
 		B8C4E2281A21639700D3577A /* Olive.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Olive.xcdatamodel; sourceTree = "<group>"; };
 		B8C4E22A1A21643D00D3577A /* IngredientsTableVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IngredientsTableVC.swift; sourceTree = "<group>"; };
 		B8C4E22C1A21645100D3577A /* Ingredient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Ingredient.swift; sourceTree = "<group>"; };
@@ -145,6 +147,7 @@
 		707A7CC01A212DE9004C1463 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				B83B75AF1A21C30000A17ECD /* drinkrecipes.txt */,
 				707A7CC11A212DE9004C1463 /* Info.plist */,
 			);
 			name = "Supporting Files";
@@ -248,6 +251,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				02CA53701A2182AB00FEBB1A /* KARMAFORM.ttf in Resources */,
+				B83B75B01A21C30000A17ECD /* drinkrecipes.txt in Resources */,
 				707A7CCB1A212DE9004C1463 /* Main.storyboard in Resources */,
 				B83B75AE1A21AA5300A17ECD /* DrinkCollectionViewCell.xib in Resources */,
 				02CA536F1A21822500FEBB1A /* Info.plist in Resources */,
