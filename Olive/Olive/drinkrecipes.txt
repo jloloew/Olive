@@ -1,0 +1,358 @@
+NewDrink:
+name:Gin & Tonic
+icon:GinAndTonic.jpg
+ingredients:
+Ingredient:
+name:Gin
+icon:Gin.png
+importance:1.0
+quantityRequired:2.0
+unit:oz.
+EndIngredient
+Ingredient:
+name:Tonic Water
+icon:Tonic.png
+importance:1.0
+quantityRequired:4.0
+unit:oz.
+EndIngredient
+Ingredient:
+name:Lime Wedge
+icon:LimeWedge.png
+importance:0.1
+quantityRequired:2
+unit:wedges
+EndIngredient
+EndDrink
+
+NewDrink:
+name:Rum & Coke
+icon:RunAndCoke.jpg
+ingredients:
+Ingredient:
+name:Rum
+icon:Rum.jpg
+importance:1.0
+quantityRequired:2.0
+unit:oz.
+EndIngredient
+Ingredient:
+name:Coke
+icon:Coke.jpg
+importance:1.0
+quantityRequired:2.0
+unit:oz.
+EndIngredient
+EndDrink
+
+NewDrink:
+name:Sex on the Beach
+icon:SexOnTheBeach.jpg
+ingredients:
+Ingredient:
+name:Vodka
+icon:Vodka.jpg
+importance:1.0
+quantityRequired:1.0
+unit:oz.
+EndIngredient
+Ingredient:
+name:Peach Schnapps
+icon:PeachSchnapps.jpg
+importance:1.0
+quantityRequired:1.0
+unit:oz.
+EndIngredient
+Ingredient:
+name:Grapefruit Juice
+icon:GrapefruitJuice.jpg
+importance:1.0
+quantityRequired:3.0
+unit:oz.
+EndIngredient
+Ingredient:
+name:Cranberry Juice
+icon:CranberryJuice.jpg
+importance:1.0
+quantityRequired:3.0
+unit:oz.
+EndIngredient
+Ingredient:
+name:Orange Juice
+icon:OrangeJuice.jpg
+importance:0.67
+quantityRequired:3.0
+unit:oz.
+EndIngredient
+Ingredient:
+name:Maraschino Cherry
+icon:MaraschinoCherry.jpg
+importance:0.33
+quantityRequired:1.0
+unit:
+EndIngredient
+EndDrink
+
+
+NewDrink:
+name:Tequila
+icon:Tequila.jpg
+ingredients:
+Ingredient:
+name:Tequila
+icon:Tequila.jpg
+importance:1.0
+quantityRequired:2.0
+unit:oz.
+EndIngredient
+EndDrink
+
+
+NewDrink:
+name:Whiskey Sour
+icon:WhiskeySour.jpg
+ingredients:
+Ingredient:
+name:Bourbon
+icon:Bourbon.jpg
+importance:1.0
+quantityRequired:2.0
+unit:oz.
+EndIngredient
+Ingredient:
+name:Lemon Juice
+icon:LemonJuice.jpg
+importance:1.0
+quantityRequired:0.75
+unit:oz.
+EndIngredient
+Ingredient:
+name:Simple Syrup
+icon:SimpleSyrup.jpg
+importance:1.0
+quantityRequired:0.5
+unit:oz.
+EndIngredient
+Ingredient:
+name:Lemon Slice
+icon:LemonSlice.jpg
+importance:0.33
+quantityRequired:1.0
+unit:
+EndIngredient
+Ingredient:
+name:Maraschino Cherry
+icon:MaraschinoCherry.jpg
+importance:0.33
+quantityRequired:1.0
+unit:
+EndIngredient
+EndDrink
+
+
+NewDrink:
+name:White Russian
+icon:WhiteRussian.jpg
+ingredients:
+Ingredient:
+name:Vodka
+icon:Vodka.png
+importance:1.0 <between 0 and 1, inclusive>
+quantityRequired:2.0 <in oz.>
+unit:oz.
+EndIngredient
+Ingredient:
+name:Kahlua
+icon:Kahlua.png
+importance:1.0
+quantityRequired:1.0
+unit:oz.
+EndIngredient
+Ingredient:
+name:Heavy Cream
+icon:HeavyCream.png
+importance:1.0
+quantityRequired:1.0
+unit:oz.
+EndIngredient
+EndDrink
+
+
+
+
+
+NewDrink:
+name:Tequila Sunrise
+icon:TequilaSunrise.png
+ingredients:
+Ingredient:
+name:Silver Tequila
+icon:SilverTequila.png
+importance:1.0
+quantityRequired:1.5
+unit:oz.
+EndIngredient
+Ingredient:
+name:Orange Juice
+icon:OrangeJuice.png
+importance:1.0
+quantityRequired:6
+unit:oz.
+EndIngredient
+Ingredient:
+name:Club Soda
+icon:ClubSoda.jpg
+importance:0.5
+quantityRequired:2.5
+unit:oz.
+EndIngredient
+Ingredient:
+name:Grenadine
+icon:Grenadine.jpg
+importance:1.0
+quantityRequired:0.5
+unit:oz.
+EndIngredient
+EndDrink
+
+
+
+
+NewDrink:
+name:Copabanana Daquiri
+icon:CopabananaDaquiri.jpg
+ingredients:
+Ingredient:
+name:Spiced Rum
+icon:SpicedRum.jpg
+importance:1.0
+quantityRequired:2
+unit:oz.
+EndIngredient
+Ingredient:
+name:Banana
+icon:Banana.jpg
+importance:1.0
+quantityRequired:0.5
+unit:
+EndIngredient
+Ingredient:
+name:Raspberries
+icon:Raspberries.jpg
+importance:1.0
+quantityRequired:0.25
+unit:Cup
+EndIngredient
+Ingredient:
+name:Simple Syrup
+icon:SimpleSyrup.jpg
+importance:1.0
+quantityRequired:0.5
+unit:oz.
+EndIngredient
+Ingredient:
+name:lime
+icon:Lime.jpg
+importance:0.1
+quantityRequired:1.0
+unit:Wheel
+EndIngredient
+EndDrink
+
+
+NewDrink:
+name:Classic Martini
+icon:ClassicMartini.jpg
+ingredients:
+Ingredient:
+name:Gin
+icon:Gin.jpg
+importance:1.0
+quantityRequired:2
+unit:oz.
+EndIngredient
+Ingredient:
+name:Dry Vermouth
+icon:DryVermouth.jpg
+importance:1.0
+quantityRequired:0.5
+unit:oz.
+EndIngredient
+Ingredient:
+name:Green Cocktail Olive
+icon:GreenCocktailOlive.jpg
+importance:0.2
+quantityRequired:2
+unit:Olives
+EndIngredient
+EndDrink
+
+
+NewDrink:
+name:Hoopla
+icon:Hoopla.jpg
+ingredients:
+Ingredient:
+name:Brandy
+icon:Brandy.jpg
+importance:1.0
+quantityRequired:0.75
+unit:oz.
+EndIngredient
+Ingredient:
+name:Lillet Blanc
+icon:LilletBlanc.jpg
+importance:1.0
+quantityRequired:0.75
+unit:oz.
+EndIngredient
+Ingredient:
+name:Cointreau
+icon:Cointreau.jpg
+importance:1.0
+quantityRequired:0.75
+unit:oz.
+EndIngredient
+Ingredient:
+name:Lemon Juice
+icon:LemonJuice.jpg
+importance:1.0
+quantityRequired:1.0
+unit:oz.
+EndIngredient
+Ingredient:
+name:Orange Twist
+icon:OrangeTwist.jpg
+importance:0.1
+quantityRequired:1.0
+unit:Twist
+EndIngredient
+EndDrink
+
+
+NewDrink:
+name:Gorilla Tit Cocktail
+icon:GorillaTitCocktail.jpg
+ingredients:
+Ingredient:
+name:Dark Rum
+icon:DarkRum.jpg
+importance:1.0
+quantityRequired:0.75
+unit:oz.
+EndIngredient
+Ingredient:
+name:Bourbon
+icon:Bourbon.jpg
+importance:1.0
+quantityRequired:0.75
+unit:oz.
+EndIngredient
+Ingredient:
+name:Coffee Liqueur
+icon:CoffeeLiqueur.jpg
+importance:1.0
+quantityRequired:0.75
+unit:oz.
+EndIngredient
+EndDrink
