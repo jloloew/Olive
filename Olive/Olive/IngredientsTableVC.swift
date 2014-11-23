@@ -13,7 +13,6 @@ class IngredientsTableViewController: UITableViewController, NSFetchedResultsCon
 	
 	var fetchedResultsController = NSFetchedResultsController()
 	let managedObjectContext = (UIApplication.sharedApplication().delegate as AppDelegate).managedObjectContext!
-	var allIngredients
 	
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -84,13 +83,13 @@ class IngredientsTableViewController: UITableViewController, NSFetchedResultsCon
     }
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return fetchedResultsController.fetchedObjects?.count ?? 0
+        return (UIApplication.sharedApplication().delegate as AppDelegate).fetchAllIngredients().count
     }
 
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("ingredient", forIndexPath: indexPath) as UITableViewCell
 		
-		let ingredient = fetchedResultsController.fetchedObjects?[indexPath.item] as Ingredient
+		let ingredient = (UIApplication.sharedApplication().delegate as AppDelegate).fetchAllIngredients()[indexPath.item] as Ingredient
         cell.textLabel.text = ingredient.name
 		cell.detailTextLabel?.text = "\(ingredient.quantityPosessed) oz."
 		
