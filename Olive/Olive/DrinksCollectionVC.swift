@@ -16,6 +16,9 @@ class DrinksCollectionViewController: UICollectionViewController, NSFetchedResul
 //    @IBOutlet var collectionView: UICollectionView!
     
 	var fetchedResultsController = NSFetchedResultsController()
+    var chosenDrink : Drink!
+    var imageForDrink : UIImage?
+    
 	let managedObjectContext = (UIApplication.sharedApplication().delegate as AppDelegate).managedObjectContext!
 
     override func viewDidLoad() {
@@ -83,42 +86,55 @@ class DrinksCollectionViewController: UICollectionViewController, NSFetchedResul
         var data = (fetchedResultsController.fetchedObjects?[indexPath.item] as Drink).icon
         cell.icon.image = UIImage(data:data)!
         println(cell.icon.image)
-
+        cell.drink = (fetchedResultsController.fetchedObjects?[indexPath.item] as Drink)
         cell.drinkName.text = (fetchedResultsController.fetchedObjects?[indexPath.item] as Drink).name
         cell.drinkName.textColor = UIColor.whiteColor()
         cell.drinkMatch.text = "\(matchAccuracyForDrink(fetchedResultsController.fetchedObjects?[indexPath.item] as Drink))% match"
-        println("\([indexPath.item]) contains \(cell.drinkName.text)")
         cell.backgroundColor = UIColor.redColor()
         
         return cell
+    }
+    
+
+    override func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
+        chosenDrink = (fetchedResultsController.fetchedObjects?[indexPath.item] as Drink)
+        imageForDrink = UIImage(data: chosenDrink.icon)
+        performSegueWithIdentifier("showDetail", sender: self)
+        println(chosenDrink.name)
     }
 
     // MARK: UICollectionViewDelegate
 
     // Uncomment this method to specify if the specified item should be highlighted during tracking
-    override func collectionView(collectionView: UICollectionView, shouldHighlightItemAtIndexPath indexPath: NSIndexPath) -> Bool {
-        return false
-    }
+//    override func collectionView(collectionView: UICollectionView, shouldHighlightItemAtIndexPath indexPath: NSIndexPath) -> Bool {
+//        return false
+//    }
 
     // Uncomment this method to specify if the specified item should be selected
-    func collectionView(collectionView: UICollectionView,  indexPath: NSIndexPath) -> Bool {
-        return false
-    }
+//    func collectionView(collectionView: UICollectionView,  indexPath: NSIndexPath) -> Bool {
+//        return false
+//    }
 
     func collectionView(collectionView: UICollectionView,
         layout collectionViewLayout: UICollectionViewLayout,
         sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
 //            collectionViewLayout.invalidateLayout()
-           return CGSizeMake((self.view.frame.width/3)-7.0, (self.view.frame.width/3)-7.0)
+           return CGSizeMake((self.view.frame.width/3)-8.0, (self.view.frame.width/3)-8.0)
     }
     
     func collectionView(collectionView: UICollectionView,
         layout collectionViewLayout: UICollectionViewLayout,
         insetForSectionAtIndex section: Int) -> UIEdgeInsets {
 //            collectionViewLayout.invalidateLayout()
-            return UIEdgeInsetsMake(0, 0, 0, 0)
+            return UIEdgeInsetsMake(3, 0, 0, 3)
     }
     
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if(segue.identifier == "showDetail"){
+            var dest : FluidViewController = (segue.destinationViewController as FluidViewController)
+            dest.drink = chosenDrink
+        }
+    }
 
     /*
     // Uncomment these methods to specify if an action menu should be displayed for the specified item, and react to actions performed on the item

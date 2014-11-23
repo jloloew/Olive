@@ -14,7 +14,7 @@ class DrinkCollectionViewCell: UICollectionViewCell {
     var drinkName: UILabel
     var drinkMatch: UILabel
     var icon: UIImageView
-
+    var drink : Drink!
 
     override init(frame: CGRect) {
         drinkName = UILabel()
