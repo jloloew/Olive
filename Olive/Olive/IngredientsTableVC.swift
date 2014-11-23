@@ -18,6 +18,8 @@ class IngredientsTableViewController: UITableViewController, NSFetchedResultsCon
         super.viewDidLoad()
 		self.navigationItem.rightBarButtonItem = self.editButtonItem()
 		
+		fuckItShipIt_generateData()
+		
 		let fetchRequest = NSFetchRequest(entityName: "Ingredient")
 		let sortDescriptor = NSSortDescriptor(key: "name", ascending: true)
 		fetchRequest.sortDescriptors = [sortDescriptor]
@@ -29,10 +31,6 @@ class IngredientsTableViewController: UITableViewController, NSFetchedResultsCon
 		if error != nil {
 			println("\(__FUNCTION__) \(__LINE__) \(error)")
 		}
-		
-		fuckItShipIt_generateData()
-		
-		self.tableView.reloadData()
     }
 	
 	func fuckItShipIt_generateData() {
@@ -49,21 +47,21 @@ class IngredientsTableViewController: UITableViewController, NSFetchedResultsCon
 		newIngredient = Ingredient(entity: entityDescription!, insertIntoManagedObjectContext: self.managedObjectContext)
 		newIngredient.quantityPosessed = 3.6
 		newIngredient.quantityRequired = 1.8
-		newIngredient.name = "vodka"
+		newIngredient.name = "Vodka"
 		newIngredient.importance = 1.0
 		
 		// tonic
 		newIngredient = Ingredient(entity: entityDescription!, insertIntoManagedObjectContext: self.managedObjectContext)
 		newIngredient.quantityPosessed = 7.2
 		newIngredient.quantityRequired = 3.6
-		newIngredient.name = "tonic"
+		newIngredient.name = "Tonic"
 		newIngredient.importance = 1.0
 		
 		// lime
 		newIngredient = Ingredient(entity: entityDescription!, insertIntoManagedObjectContext: self.managedObjectContext)
 		newIngredient.quantityPosessed = 2.0
 		newIngredient.quantityRequired = 1.0
-		newIngredient.name = "lime"
+		newIngredient.name = "Lime"
 		newIngredient.importance = 0.33
 		
 		// save the new ingredients
@@ -74,19 +72,17 @@ class IngredientsTableViewController: UITableViewController, NSFetchedResultsCon
 		}
 		
 		defaults.setBool(true, forKey: "fuck it ship it data")
+		
+		self.tableView.reloadData()
 	}
 	
     // MARK: - Table view data source
 	
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        // #warning Potentially incomplete method implementation.
-        // Return the number of sections.
         return 1
     }
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete method implementation.
-        // Return the number of rows in the section.
         return fetchedResultsController.fetchedObjects?.count ?? 0
     }
 

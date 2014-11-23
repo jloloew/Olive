@@ -19,6 +19,7 @@
 		B8C4E22B1A21643D00D3577A /* IngredientsTableVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8C4E22A1A21643D00D3577A /* IngredientsTableVC.swift */; };
 		B8C4E22D1A21645100D3577A /* Ingredient.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8C4E22C1A21645100D3577A /* Ingredient.swift */; };
 		B8C4E22F1A21645100D3577A /* Drink.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8C4E22E1A21645100D3577A /* Drink.swift */; };
+		B8C4E2311A21710B00D3577A /* DrinksTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8C4E2301A21710B00D3577A /* DrinksTableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,6 +49,7 @@
 		B8C4E22A1A21643D00D3577A /* IngredientsTableVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IngredientsTableVC.swift; sourceTree = "<group>"; };
 		B8C4E22C1A21645100D3577A /* Ingredient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Ingredient.swift; sourceTree = "<group>"; };
 		B8C4E22E1A21645100D3577A /* Drink.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Drink.swift; sourceTree = "<group>"; };
+		B8C4E2301A21710B00D3577A /* DrinksTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DrinksTableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,6 +103,7 @@
 				B8C4E22E1A21645100D3577A /* Drink.swift */,
 				B8C4E22C1A21645100D3577A /* Ingredient.swift */,
 				B8C4E22A1A21643D00D3577A /* IngredientsTableVC.swift */,
+				B8C4E2301A21710B00D3577A /* DrinksTableViewController.swift */,
 				707A7CC01A212DE9004C1463 /* Supporting Files */,
 			);
 			path = Olive;
@@ -235,6 +238,7 @@
 				B8C4E2291A21639700D3577A /* Olive.xcdatamodeld in Sources */,
 				B8C4E22D1A21645100D3577A /* Ingredient.swift in Sources */,
 				707A7CC31A212DE9004C1463 /* AppDelegate.swift in Sources */,
+				B8C4E2311A21710B00D3577A /* DrinksTableViewController.swift in Sources */,
 				B8C4E22B1A21643D00D3577A /* IngredientsTableVC.swift in Sources */,
 				B8C4E22F1A21645100D3577A /* Drink.swift in Sources */,
 				707A7CE61A212E81004C1463 /* FluidViewController.swift in Sources */,
