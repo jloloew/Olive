@@ -9,7 +9,7 @@
 import UIKit
 import CoreData
 
-class IngredientsTableViewController: UIViewController, NSFetchedResultsControllerDelegate {
+class IngredientsTableViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, NSFetchedResultsControllerDelegate {
 	
 	var fetchedResultsController = NSFetchedResultsController()
 	let managedObjectContext = (UIApplication.sharedApplication().delegate as AppDelegate).managedObjectContext!
@@ -88,7 +88,8 @@ class IngredientsTableViewController: UIViewController, NSFetchedResultsControll
     }
 
      func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return (UIApplication.sharedApplication().delegate as AppDelegate).fetchAllIngredients().count
+        let retVal = (UIApplication.sharedApplication().delegate as AppDelegate).fetchAllIngredients().count
+		return retVal
     }
 
      func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
