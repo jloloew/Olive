@@ -125,30 +125,55 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 			return [Ingredient]()
 		}
 		
+		// filter out the ingredients we don't have
+		var ingredients = NSMutableSet(array: frc.fetchedObjects! as [Ingredient])
+		ingredients.enumerateObjectsUsingBlock { (ingredient, shouldStopPtr) -> Void in
+			if let ing = ingredient as? Ingredient {
+				if ing.quantityPosessed.floatValue < 0.01 {
+					ingredients.removeObject(ing)
+				}
+			}
+		}
+		
+		return ingredients.allObjects as [Ingredient]
+	}
+	
+	func fetchAllIngredients() -> [Ingredient] {
+		let fetchRequest = NSFetchRequest(entityName: "Ingredient")
+		let sortDescriptor = NSSortDescriptor(key: "name", ascending: true)
+		fetchRequest.sortDescriptors = [sortDescriptor]
+		let frc = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: managedObjectContext!, sectionNameKeyPath: nil, cacheName: nil)
+		let error = NSErrorPointer()
+		frc.performFetch(error)
+		if error != nil {
+			println("\(__FUNCTION__) \(__LINE__) \(error)")
+			return [Ingredient]()
+		}
+		
 		return frc.fetchedObjects! as [Ingredient]
 	}
 }
 
 func matchAccuracyForDrink(drink: Drink) -> Float {
-		// get the total value of the importances all the ingredients needed
-		var sumNeeded = Float(0.0)
-		var sumPosessed = Float(0.0)
-		let ourIngredients = (UIApplication.sharedApplication().delegate as AppDelegate).fetchIngredientsPosessed()
-		for i in drink.ingredients {
-			let ingredient = i as Ingredient
-			
-			sumNeeded += ingredient.importance.floatValue
-			
-			// see if we possess this ingredient
-			for j in ourIngredients {
-				if j == ingredient {
-					sumPosessed += j.importance.floatValue
-				}
+	// get the total value of the importances all the ingredients needed
+	var sumNeeded = Float(0.0)
+	var sumPosessed = Float(0.0)
+	let ourIngredients = (UIApplication.sharedApplication().delegate as AppDelegate).fetchIngredientsPosessed()
+	for i in drink.ingredients {
+		let ingredient = i as Ingredient
+		
+		sumNeeded += ingredient.importance.floatValue
+		
+		// see if we possess this ingredient
+		for j in ourIngredients {
+			if j == ingredient {
+				sumPosessed += j.importance.floatValue
 			}
 		}
-		
-		return sumPosessed / sumNeeded
 	}
+	
+	return sumPosessed / sumNeeded
+}
 
 func ==(lhs: Ingredient, rhs: Ingredient) -> Bool {
 	return lhs.name == rhs.name

@@ -13,6 +13,7 @@ class IngredientsTableViewController: UITableViewController, NSFetchedResultsCon
 	
 	var fetchedResultsController = NSFetchedResultsController()
 	let managedObjectContext = (UIApplication.sharedApplication().delegate as AppDelegate).managedObjectContext!
+	var allIngredients
 	
     override func viewDidLoad() {
         super.viewDidLoad()
