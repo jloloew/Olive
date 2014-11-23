@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6250" systemVersion="14B23" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="MWM-Rj-Nz0">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6250" systemVersion="14B25" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="MWM-Rj-Nz0">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6244"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
@@ -240,7 +240,7 @@
         <!--Ingredients-->
         <scene sceneID="5pB-Z3-L2l">
             <objects>
-                <viewController id="hOc-YG-Mev" sceneMemberID="viewController">
+                <viewController id="hOc-YG-Mev" customClass="IngredientsTableViewController" customModule="Olive" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="WzU-Sd-fDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="KCA-50-rCH"/>
@@ -260,7 +260,7 @@
                                 <rect key="frame" x="0.0" y="108" width="600" height="443"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="ingredient" id="VoL-MY-hjB">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="IngredientCell" id="VoL-MY-hjB">
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="VoL-MY-hjB" id="a9U-7n-8vP">
                                             <autoresizingMask key="autoresizingMask"/>
@@ -283,6 +283,7 @@
                     <navigationItem key="navigationItem" title="Ingredients" id="PHw-xu-GCX"/>
                     <connections>
                         <outlet property="searchDisplayController" destination="CY0-o2-3eV" id="Dju-np-OpN"/>
+                        <outlet property="tableView" destination="RdF-iT-TJC" id="32r-Ub-DNK"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TCG-Pb-JCT" userLabel="First Responder" sceneMemberID="firstResponder"/>
