@@ -18,6 +18,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
+//        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0)) {
+//			sleep(1) // fuck it ship it
+//			DrinkRecipesParser().hitIt() // add coredata filler
+//            //notification
+//		}
 		
         return true
     }
@@ -155,26 +160,37 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 }
 
 func matchAccuracyForDrink(drink: Drink) -> Float {
-	// get the total value of the importances all the ingredients needed
-	var sumNeeded = Float(0.0)
-	var sumPosessed = Float(0.0)
-	let ourIngredients = (UIApplication.sharedApplication().delegate as AppDelegate).fetchIngredientsPosessed()
-	for i in drink.ingredients {
-		let ingredient = i as Ingredient
-		
-		sumNeeded += ingredient.importance.floatValue
-		
-		// see if we possess this ingredient
-		for j in ourIngredients {
-			if j == ingredient {
-				sumPosessed += j.importance.floatValue
+		// get the total value of the importances all the ingredients needed
+		var sumNeeded = Float(0.0)
+		var sumPosessed = Float(0.0)
+		let ourIngredients = (UIApplication.sharedApplication().delegate as AppDelegate).fetchIngredientsPosessed()
+		for i in drink.ingredients {
+			let ingredient = i as Ingredient
+			
+			sumNeeded += ingredient.importance.floatValue
+			
+			// see if we possess this ingredient
+			for j in ourIngredients {
+				if j.name == ingredient.name {
+					sumPosessed += j.importance.floatValue
+
+				}
 			}
 		}
+    if(sumNeeded != 0){
+        return sumPosessed/sumNeeded
+    } else {
+        return 0
+    }
+//        var float = sumPosessed / sumNeeded
+//        println("\(float)")
+//		return float
+
 	}
 	
 	return sumPosessed / sumNeeded
 }
 
-func ==(lhs: Ingredient, rhs: Ingredient) -> Bool {
-	return lhs.name == rhs.name
-}
+//func ==(lhs: Ingredient, rhs: Ingredient) -> Bool {
+//	return lhs.name == rhs.name
+//}

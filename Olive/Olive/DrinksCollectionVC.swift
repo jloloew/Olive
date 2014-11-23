@@ -20,12 +20,11 @@ class DrinksCollectionViewController: UIViewController, NSFetchedResultsControll
 
     override func viewDidLoad() {
         super.viewDidLoad()
-		
-		DrinkRecipesParser().hitIt() // add coredata filler
-		
+        DrinkRecipesParser().hitIt()
+        
         // Register cell classes
-        self.collectionView.registerClass(DrinkCollectionViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)
-		
+        self.collectionView.registerClass(UICollectionViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)
+
         // Do any additional setup after loading the view.
 		let fetchRequest = NSFetchRequest(entityName: "Drink")
 		let sortDescriptor = NSSortDescriptor(key: "name", ascending: true)
@@ -58,21 +57,34 @@ class DrinksCollectionViewController: UIViewController, NSFetchedResultsControll
 
 
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-		var retVal: Int
-		if fetchedResultsController.fetchedObjects != nil {
-			retVal = fetchedResultsController.fetchedObjects!.count
-		} else {
-			retVal = 0
-		}
-		return retVal
+        DrinkRecipesParser().hitIt()
+        var ret = fetchedResultsController.fetchedObjects?.count ?? 0
+        println(ret)
+        return ret
     }
 
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCellWithReuseIdentifier(reuseIdentifier, forIndexPath: indexPath) as DrinkCollectionViewCell
+        DrinkRecipesParser().hitIt()
+
+        var cell = collectionView.dequeueReusableCellWithReuseIdentifier(reuseIdentifier, forIndexPath: indexPath) as UICollectionViewCell
     
         // Configure the cell
-		cell.drink = fetchedResultsController.fetchedObjects?[indexPath.item] as Drink
-    
+//		cell.drink = fetchedResultsController.fetchedObjects?[indexPath.item] as Drink
+        println((fetchedResultsController.fetchedObjects?[indexPath.item] as Drink).name)
+        var background = UIView(frame: CGRectMake(cell.frame.origin.x, cell.frame.origin.y, 100.0, 100.0))
+        background.backgroundColor = UIColor.redColor()
+        cell.addSubview(background)
+
+        var image = UIImageView(frame: CGRectMake(background.frame.origin.x, background.frame.origin.y, background.frame.width, background.frame.height))
+         image.image = UIImage(data: (fetchedResultsController.fetchedObjects?[indexPath.item] as Drink).image)
+        background.addSubview(image)
+        var titleLabel = UILabel(frame: CGRectMake(0, 0, background.frame.width, 20))
+        titleLabel.text = (fetchedResultsController.fetchedObjects?[indexPath.item] as Drink).name
+        background.addSubview(titleLabel)
+        var percentLabel = UILabel(frame: CGRectMake(0, 20, background.frame.width, 20))
+        percentLabel.text = "\(matchAccuracyForDrink(fetchedResultsController.fetchedObjects?[indexPath.item] as Drink))%"
+        background.addSubview(percentLabel)
+        
         return cell
     }
 

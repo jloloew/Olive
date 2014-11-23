@@ -34,6 +34,7 @@ class DrinkRecipesParser {
 		// parse the string
 		var currentDrink: Drink! = nil
 		var currentIngredient: Ingredient! = nil
+        var currentIngredients : NSMutableSet = NSMutableSet()
 		var inIngredient: Bool = false
 		
 		// break it up into lines
@@ -73,11 +74,18 @@ class DrinkRecipesParser {
 				if inIngredient {
 					//TODO: add icons to ingredients
 				} else {
-					currentDrink.icon = imageNamed(value)
+                    println(value)
+                    var image = UIImage(named: value)
+                    if(image != nil){
+                        currentDrink.icon = UIImagePNGRepresentation(image)
+                    } else {
+                        currentDrink.icon = UIImagePNGRepresentation(UIImage(named: "GinAndTonic.jpg"))
+                    }
 				}
 			case "ingredients":
 				inIngredient = true
 			case "Ingredient":
+                inIngredient = true
 				currentIngredient = newIngredient()
 			case "importance":
 				currentIngredient.importance = value.floatValue
@@ -88,10 +96,13 @@ class DrinkRecipesParser {
 				//TODO: add units to ingredients
 			case "EndIngredient":
 				inIngredient = false
+                currentIngredients.addObject(currentIngredient)
+                save()
 				//TODO: save the ingredient
 				currentIngredient = nil
 			case "EndDrink":
 				//TODO: save the drink
+                currentDrink.ingredients = currentIngredients.copy() as NSSet
 				currentDrink = nil
 			default:
 				println("Unknown key while parsing recipes file: \(key)")
@@ -101,6 +112,8 @@ class DrinkRecipesParser {
 		println("Successfully parsed recipes file!")
 		
 		defaults.setBool(true, forKey: "parsedRecipesOnceOnly")
+        save()
+        
 	}
 	
 	func newIngredient() -> Ingredient {
