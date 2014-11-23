@@ -147,3 +147,7 @@ func matchAccuracyForDrink(drink: Drink) -> Float {
 		
 		return sumPosessed / sumNeeded
 	}
+
+func ==(lhs: Ingredient, rhs: Ingredient) -> Bool {
+	return lhs.name == rhs.name
+}
