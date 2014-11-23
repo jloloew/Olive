@@ -99,8 +99,70 @@ class IngredientsTableViewController: UIViewController, UITableViewDelegate, UIT
         cell.textLabel.text = ingredient.name
 		cell.detailTextLabel?.text = "\(ingredient.quantityPosessed) oz."
 		
+		// add checkmark if necessary
+		if ingredient.quantityPosessed.floatValue >= 0.1 {
+			cell.accessoryType = .Checkmark
+		} else {
+			cell.accessoryType = .None
+		}
+		
         return cell
     }
+	
+//	func tableView(tableView: UITableView, accessoryButtonTappedForRowWithIndexPath indexPath: NSIndexPath) {
+	func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+		
+//		tableView.deselectRowAtIndexPath(indexPath, animated: true)
+		
+		/*
+		let moc = (UIApplication.sharedApplication().delegate as AppDelegate).managedObjectContext!
+		let fetchRequest = NSFetchRequest(entityName: "Ingredient")
+		let sortDescriptor = NSSortDescriptor(key: "name", ascending: true)
+		fetchRequest.sortDescriptors = [sortDescriptor]
+		let frc = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: managedObjectContext, sectionNameKeyPath: nil, cacheName: nil)
+		let error = NSErrorPointer()
+		fetchedResultsController.performFetch(error)
+		if error != nil {
+			println("\(__FUNCTION__) \(__LINE__) \(error)")
+			return
+		}
+		
+		let ingredient = frc.fetchedObjects?[indexPath.row] as Ingredient
+		*/
+		
+		let cell: UITableViewCell = self.tableView(tableView, cellForRowAtIndexPath: indexPath)
+		if cell.accessoryType  == .Checkmark {
+			cell.accessoryType = .None
+		} else  {
+			cell.accessoryType = .Checkmark
+		}
+//		
+//		let ingredient = (UIApplication.sharedApplication().delegate as AppDelegate).fetchAllIngredients()[indexPath.row]
+//		
+//		// toggle
+//		if ingredient.quantityPosessed.floatValue >= 0.1 {
+//			ingredient.quantityPosessed = 0.0
+//		} else {
+//			ingredient.quantityPosessed = 2.0
+//		}
+//		cell.detailTextLabel?.text = "\(ingredient.quantityPosessed) oz."
+//		
+//		// save change
+//		let error = NSErrorPointer()
+//		(UIApplication.sharedApplication().delegate as AppDelegate).managedObjectContext?.save(error)
+//		if error != nil {
+//			println("\(__FUNCTION__) \(__LINE__) \(error)")
+//		}
+//		
+//		tableView.deselectRowAtIndexPath(indexPath, animated: true)
+	}
+	
+//	func tableView(tableView: UITableView, willSelectRowAtIndexPath indexPath: NSIndexPath) -> NSIndexPath? {
+//		let cell: UITableViewCell = tableView(tableView, cellForRowAtIndexPath: indexPath)
+//		cell.accessoryView
+//		
+//		return indexPath
+//	}
 	
 	
     /*
@@ -134,10 +196,12 @@ class IngredientsTableViewController: UIViewController, UITableViewDelegate, UIT
         }    
     }
 	
+	/*
     // Override to support rearranging the table view.
      func tableView(tableView: UITableView, moveRowAtIndexPath fromIndexPath: NSIndexPath, toIndexPath: NSIndexPath) {
-
+		
     }
+	*/
 	
     /*
     // Override to support conditional rearranging of the table view.
