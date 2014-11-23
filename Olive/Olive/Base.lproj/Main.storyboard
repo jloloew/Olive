@@ -74,14 +74,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tabBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mW2-gr-bmq">
-                                <rect key="frame" x="0.0" y="551" width="600" height="49"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                <items>
-                                    <tabBarItem title="olive" image="olive-on-toothpick-icon.png" id="UTM-pU-SVu"/>
-                                    <tabBarItem title="Bartender" image="bartender icon.png" id="1JJ-IE-zGW"/>
-                                </items>
-                            </tabBar>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="C0w-nh-zFl">
                                 <rect key="frame" x="0.0" y="64" width="600" height="487"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="ByJ-Zu-sfn">
@@ -164,6 +156,14 @@
                                     <outlet property="delegate" destination="0jr-mR-Ero" id="7xV-nI-r3O"/>
                                 </connections>
                             </searchBar>
+                            <tabBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mW2-gr-bmq">
+                                <rect key="frame" x="0.0" y="551" width="600" height="49"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <items>
+                                    <tabBarItem title="olive" image="olive-on-toothpick-icon.png" id="UTM-pU-SVu"/>
+                                    <tabBarItem title="Bartender" image="bartender icon.png" id="1JJ-IE-zGW"/>
+                                </items>
+                            </tabBar>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -231,7 +231,7 @@
                     </connections>
                 </searchDisplayController>
             </objects>
-            <point key="canvasLocation" x="1230" y="1749"/>
+            <point key="canvasLocation" x="1097" y="1936"/>
         </scene>
     </scenes>
     <resources>
