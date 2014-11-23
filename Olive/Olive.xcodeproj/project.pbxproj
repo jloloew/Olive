@@ -24,6 +24,9 @@
 		B83B75AE1A21AA5300A17ECD /* DrinkCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B83B75AC1A21AA5300A17ECD /* DrinkCollectionViewCell.xib */; };
 		B83B75B01A21C30000A17ECD /* drinkrecipes.txt in Resources */ = {isa = PBXBuildFile; fileRef = B83B75AF1A21C30000A17ECD /* drinkrecipes.txt */; };
 		B83B75B21A21C37900A17ECD /* DrinkRecipesParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = B83B75B11A21C37900A17ECD /* DrinkRecipesParser.swift */; };
+		B840DC221A222EEA003F4EBC /* icon-120.png in Resources */ = {isa = PBXBuildFile; fileRef = B840DC211A222EEA003F4EBC /* icon-120.png */; };
+		B8B682A91A2230F4008DF2F3 /* icon-40.png in Resources */ = {isa = PBXBuildFile; fileRef = B8B682A81A2230F4008DF2F3 /* icon-40.png */; };
+		B8B682AB1A2231D2008DF2F3 /* icon - 240.png in Resources */ = {isa = PBXBuildFile; fileRef = B8B682AA1A2231D2008DF2F3 /* icon - 240.png */; };
 		B8C4E2291A21639700D3577A /* Olive.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = B8C4E2271A21639700D3577A /* Olive.xcdatamodeld */; };
 		B8C4E22B1A21643D00D3577A /* IngredientsTableVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8C4E22A1A21643D00D3577A /* IngredientsTableVC.swift */; };
 		B8C4E22D1A21645100D3577A /* Ingredient.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8C4E22C1A21645100D3577A /* Ingredient.swift */; };
@@ -62,6 +65,9 @@
 		B83B75AC1A21AA5300A17ECD /* DrinkCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DrinkCollectionViewCell.xib; sourceTree = "<group>"; };
 		B83B75AF1A21C30000A17ECD /* drinkrecipes.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = drinkrecipes.txt; sourceTree = "<group>"; };
 		B83B75B11A21C37900A17ECD /* DrinkRecipesParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DrinkRecipesParser.swift; sourceTree = "<group>"; };
+		B840DC211A222EEA003F4EBC /* icon-120.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-120.png"; sourceTree = "<group>"; };
+		B8B682A81A2230F4008DF2F3 /* icon-40.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-40.png"; sourceTree = "<group>"; };
+		B8B682AA1A2231D2008DF2F3 /* icon - 240.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "icon - 240.png"; path = "../icon - 240.png"; sourceTree = "<group>"; };
 		B8C4E2281A21639700D3577A /* Olive.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Olive.xcdatamodel; sourceTree = "<group>"; };
 		B8C4E22A1A21643D00D3577A /* IngredientsTableVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IngredientsTableVC.swift; sourceTree = "<group>"; };
 		B8C4E22C1A21645100D3577A /* Ingredient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Ingredient.swift; sourceTree = "<group>"; };
@@ -97,6 +103,7 @@
 		02CA53691A21766200FEBB1A /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				B840DC201A222DF9003F4EBC /* icon */,
 				02CA53761A21B2F900FEBB1A /* olive-on-toothpick-icon.png */,
 				02CA536A1A21767400FEBB1A /* bartender icon.png */,
 			);
@@ -170,6 +177,16 @@
 				707A7CDA1A212DEA004C1463 /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		B840DC201A222DF9003F4EBC /* icon */ = {
+			isa = PBXGroup;
+			children = (
+				B8B682AA1A2231D2008DF2F3 /* icon - 240.png */,
+				B8B682A81A2230F4008DF2F3 /* icon-40.png */,
+				B840DC211A222EEA003F4EBC /* icon-120.png */,
+			);
+			name = icon;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -254,11 +271,14 @@
 			files = (
 				02CA53701A2182AB00FEBB1A /* KARMAFORM.ttf in Resources */,
 				B83B75B01A21C30000A17ECD /* drinkrecipes.txt in Resources */,
+				B840DC221A222EEA003F4EBC /* icon-120.png in Resources */,
 				707A7CCB1A212DE9004C1463 /* Main.storyboard in Resources */,
 				B83B75AE1A21AA5300A17ECD /* DrinkCollectionViewCell.xib in Resources */,
 				02CA536B1A21767400FEBB1A /* bartender icon.png in Resources */,
 				707A7CD01A212DEA004C1463 /* LaunchScreen.xib in Resources */,
+				B8B682AB1A2231D2008DF2F3 /* icon - 240.png in Resources */,
 				707A7CCD1A212DE9004C1463 /* Images.xcassets in Resources */,
+				B8B682A91A2230F4008DF2F3 /* icon-40.png in Resources */,
 				02CA53771A21B2F900FEBB1A /* olive-on-toothpick-icon.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
