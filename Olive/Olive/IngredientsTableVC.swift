@@ -91,7 +91,7 @@ class IngredientsTableViewController: UITableViewController, NSFetchedResultsCon
 		
 		let ingredient = fetchedResultsController.fetchedObjects?[indexPath.item] as Ingredient
         cell.textLabel.text = ingredient.name
-		cell.detailTextLabel?.text = "\(ingredient.quantityPosessed)"
+		cell.detailTextLabel?.text = "\(ingredient.quantityPosessed) oz."
 		
         return cell
     }

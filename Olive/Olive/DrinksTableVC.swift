@@ -7,48 +7,53 @@
 //
 
 import UIKit
+import CoreData
 
-class DrinksTableViewController: UITableViewController {
+class DrinksTableViewController: UITableViewController, NSFetchedResultsControllerDelegate {
+	
+	var fetchedResultsController = NSFetchedResultsController()
+	let managedObjectContext = (UIApplication.sharedApplication().delegate as AppDelegate).managedObjectContext!
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem()
+		
+		let fetchRequest = NSFetchRequest(entityName: "Drink")
+		let sortDescriptor = NSSortDescriptor(key: "name", ascending: true)
+		fetchRequest.sortDescriptors = [sortDescriptor]
+		fetchedResultsController = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: managedObjectContext, sectionNameKeyPath: nil, cacheName: nil)
+		fetchedResultsController.delegate = self
+		
+		let error = NSErrorPointer()
+		fetchedResultsController.performFetch(error)
+		if error != nil {
+			println("\(__FUNCTION__) \(__LINE__) \(error)")
+		}
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
+	
+	func matchAccuracyForDrink(drink: Drink) -> Float {
+		
+	}
 
     // MARK: - Table view data source
 
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        // #warning Potentially incomplete method implementation.
-        // Return the number of sections.
-        return 0
+        return 1
     }
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete method implementation.
-        // Return the number of rows in the section.
-        return 0
+        return fetchedResultsController.fetchedObjects?.count ?? 0
     }
-
-    /*
+	
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("reuseIdentifier", forIndexPath: indexPath) as UITableViewCell
-
-        // Configure the cell...
-
+        let cell = tableView.dequeueReusableCellWithIdentifier("drink", forIndexPath: indexPath) as UITableViewCell
+		
+		let drink = fetchedResultsController.fetchedObjects?[indexPath.item] as Drink
+		cell.textLabel.text = drink.name
+		cell.detailTextLabel?.text = "\(matchAccuracyForDrink(drink))% match"
+		
         return cell
     }
-    */
-
+	
     /*
     // Override to support conditional editing of the table view.
     override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
@@ -75,14 +80,11 @@ class DrinksTableViewController: UITableViewController {
 
     }
     */
-
-    /*
+	
     // Override to support conditional rearranging of the table view.
     override func tableView(tableView: UITableView, canMoveRowAtIndexPath indexPath: NSIndexPath) -> Bool {
-        // Return NO if you do not want the item to be re-orderable.
-        return true
+        return false
     }
-    */
 
     /*
     // MARK: - Navigation
