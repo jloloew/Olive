@@ -10,11 +10,10 @@ import UIKit
 
 class ViewController: UIViewController {
 
-  //x  @IBOutlet weak var oliveLabel: UILabel!
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
-     //   oliveLabel.font = UIFont (name: "KARMAFORM", size: 60)
         
         // Do any additional setup after loading the view, typically from a nib.
     }
