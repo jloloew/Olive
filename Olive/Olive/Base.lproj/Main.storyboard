@@ -428,7 +428,7 @@
         <!--olive-->
         <scene sceneID="Rs3-uD-kEO">
             <objects>
-                <viewController id="PVv-vw-ehD" sceneMemberID="viewController">
+                <viewController id="PVv-vw-ehD" customClass="DrinksCollectionViewController" customModule="Olive" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="tdP-xo-Oa9"/>
                         <viewControllerLayoutGuide type="bottom" id="Had-wB-8ZY"/>
