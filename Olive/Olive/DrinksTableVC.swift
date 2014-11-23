@@ -31,7 +31,39 @@ class DrinksTableViewController: UITableViewController, NSFetchedResultsControll
     }
 	
 	func matchAccuracyForDrink(drink: Drink) -> Float {
+		// get the total value of the importances all the ingredients needed
+		var sumNeeded = Float(0.0)
+		var sumPosessed = Float(0.0)
+		let ourIngredients = fetchIngredientsPosessed()
+		for i in drink.ingredients {
+			let ingredient = i as Ingredient
+			
+			sumNeeded += ingredient.importance.floatValue
+			
+			// see if we possess this ingredient
+			for j in ourIngredients {
+				if j == ingredient {
+					sumPosessed += j.importance.floatValue
+				}
+			}
+		}
 		
+		return sumPosessed / sumNeeded
+	}
+	
+	func fetchIngredientsPosessed() -> [Ingredient] {
+		let fetchRequest = NSFetchRequest(entityName: "Ingredient")
+		let sortDescriptor = NSSortDescriptor(key: "name", ascending: true)
+		fetchRequest.sortDescriptors = [sortDescriptor]
+		let frc = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: managedObjectContext, sectionNameKeyPath: nil, cacheName: nil)
+		let error = NSErrorPointer()
+		frc.performFetch(error)
+		if error != nil {
+			println("\(__FUNCTION__) \(__LINE__) \(error)")
+			return [Ingredient]()
+		}
+		
+		return frc.fetchedObjects! as [Ingredient]
 	}
 
     // MARK: - Table view data source

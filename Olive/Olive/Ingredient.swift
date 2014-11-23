@@ -19,3 +19,7 @@ class Ingredient: NSManagedObject {
     @NSManaged var drink: Drink
 
 }
+
+func ==(lhs: Ingredient, rhs: Ingredient) -> Bool {
+	return lhs.name == rhs.name
+}
