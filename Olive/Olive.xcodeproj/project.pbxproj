@@ -14,6 +14,8 @@
 		707A7CCD1A212DE9004C1463 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 707A7CCC1A212DE9004C1463 /* Images.xcassets */; };
 		707A7CD01A212DEA004C1463 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 707A7CCE1A212DE9004C1463 /* LaunchScreen.xib */; };
 		707A7CDC1A212DEA004C1463 /* OliveTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 707A7CDB1A212DEA004C1463 /* OliveTests.swift */; };
+		707A7CE61A212E81004C1463 /* FluidViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 707A7CE51A212E81004C1463 /* FluidViewController.swift */; };
+		707A7CE81A214F9D004C1463 /* CoreMotion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 707A7CE71A214F9D004C1463 /* CoreMotion.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,6 +40,8 @@
 		707A7CD51A212DEA004C1463 /* OliveTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = OliveTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		707A7CDA1A212DEA004C1463 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		707A7CDB1A212DEA004C1463 /* OliveTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OliveTests.swift; sourceTree = "<group>"; };
+		707A7CE51A212E81004C1463 /* FluidViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FluidViewController.swift; path = ../FluidViewController.swift; sourceTree = "<group>"; };
+		707A7CE71A214F9D004C1463 /* CoreMotion.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMotion.framework; path = System/Library/Frameworks/CoreMotion.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -45,6 +49,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				707A7CE81A214F9D004C1463 /* CoreMotion.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -61,6 +66,7 @@
 		707A7CB41A212DE9004C1463 = {
 			isa = PBXGroup;
 			children = (
+				707A7CE71A214F9D004C1463 /* CoreMotion.framework */,
 				707A7CBF1A212DE9004C1463 /* Olive */,
 				707A7CD81A212DEA004C1463 /* OliveTests */,
 				707A7CBE1A212DE9004C1463 /* Products */,
@@ -79,6 +85,7 @@
 		707A7CBF1A212DE9004C1463 /* Olive */ = {
 			isa = PBXGroup;
 			children = (
+				707A7CE51A212E81004C1463 /* FluidViewController.swift */,
 				707A7CC21A212DE9004C1463 /* AppDelegate.swift */,
 				707A7CC71A212DE9004C1463 /* ViewController.swift */,
 				707A7CC91A212DE9004C1463 /* Main.storyboard */,
@@ -218,6 +225,7 @@
 				707A7CC81A212DE9004C1463 /* ViewController.swift in Sources */,
 				707A7CC31A212DE9004C1463 /* AppDelegate.swift in Sources */,
 				707A7CC61A212DE9004C1463 /* Olive.xcdatamodeld in Sources */,
+				707A7CE61A212E81004C1463 /* FluidViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -343,6 +351,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = Olive/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -353,6 +362,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = Olive/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
