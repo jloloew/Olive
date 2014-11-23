@@ -11,8 +11,10 @@ import CoreData
 
 let reuseIdentifier = "DrinkCell"
 
-class DrinksCollectionViewController: UICollectionViewController, NSFetchedResultsControllerDelegate {
+class DrinksCollectionViewController: UIViewController, NSFetchedResultsControllerDelegate, UICollectionViewDelegate, UICollectionViewDataSource{
 	
+    @IBOutlet var collectionView: UICollectionView!
+    
 	var fetchedResultsController = NSFetchedResultsController()
 	let managedObjectContext = (UIApplication.sharedApplication().delegate as AppDelegate).managedObjectContext!
 
@@ -20,7 +22,7 @@ class DrinksCollectionViewController: UICollectionViewController, NSFetchedResul
         super.viewDidLoad()
 
         // Register cell classes
-        self.collectionView.registerClass(UICollectionViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)
+        self.collectionView.registerClass(DrinkCollectionViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)
 
         // Do any additional setup after loading the view.
 		let fetchRequest = NSFetchRequest(entityName: "Drink")
@@ -48,16 +50,16 @@ class DrinksCollectionViewController: UICollectionViewController, NSFetchedResul
 
     // MARK: UICollectionViewDataSource
 
-    override func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
+    func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
         return 1
     }
 
 
-    override func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+    func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return fetchedResultsController.fetchedObjects?.count ?? 0
     }
 
-    override func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
+    func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier(reuseIdentifier, forIndexPath: indexPath) as DrinkCollectionViewCell
     
         // Configure the cell
@@ -69,12 +71,12 @@ class DrinksCollectionViewController: UICollectionViewController, NSFetchedResul
     // MARK: UICollectionViewDelegate
 
     // Uncomment this method to specify if the specified item should be highlighted during tracking
-    override func collectionView(collectionView: UICollectionView, shouldHighlightItemAtIndexPath indexPath: NSIndexPath) -> Bool {
+    func collectionView(collectionView: UICollectionView, shouldHighlightItemAtIndexPath indexPath: NSIndexPath) -> Bool {
         return false
     }
 
     // Uncomment this method to specify if the specified item should be selected
-    override func collectionView(collectionView: UICollectionView, shouldSelectItemAtIndexPath indexPath: NSIndexPath) -> Bool {
+    func collectionView(collectionView: UICollectionView,  indexPath: NSIndexPath) -> Bool {
         return false
     }
 
