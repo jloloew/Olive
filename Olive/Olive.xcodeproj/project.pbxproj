@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		02CA536B1A21767400FEBB1A /* bartender icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 02CA536A1A21767400FEBB1A /* bartender icon.png */; };
+		02CA536D1A2176B900FEBB1A /* KARMAFORM.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 02CA536C1A2176B900FEBB1A /* KARMAFORM.ttf */; };
 		707A7CC31A212DE9004C1463 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 707A7CC21A212DE9004C1463 /* AppDelegate.swift */; };
 		707A7CC81A212DE9004C1463 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 707A7CC71A212DE9004C1463 /* ViewController.swift */; };
 		707A7CCB1A212DE9004C1463 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 707A7CC91A212DE9004C1463 /* Main.storyboard */; };
@@ -33,6 +35,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		02CA536A1A21767400FEBB1A /* bartender icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bartender icon.png"; sourceTree = "<group>"; };
+		02CA536C1A2176B900FEBB1A /* KARMAFORM.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = KARMAFORM.ttf; sourceTree = "<group>"; };
 		707A7CBD1A212DE9004C1463 /* Olive.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Olive.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		707A7CC11A212DE9004C1463 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		707A7CC21A212DE9004C1463 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -71,6 +75,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		02CA53681A21765900FEBB1A /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				02CA536C1A2176B900FEBB1A /* KARMAFORM.ttf */,
+			);
+			name = Fonts;
+			sourceTree = "<group>";
+		};
+		02CA53691A21766200FEBB1A /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				02CA536A1A21767400FEBB1A /* bartender icon.png */,
+			);
+			name = Images;
+			sourceTree = "<group>";
+		};
 		707A7CB41A212DE9004C1463 = {
 			isa = PBXGroup;
 			children = (
@@ -93,6 +113,8 @@
 		707A7CBF1A212DE9004C1463 /* Olive */ = {
 			isa = PBXGroup;
 			children = (
+				02CA53691A21766200FEBB1A /* Images */,
+				02CA53681A21765900FEBB1A /* Fonts */,
 				707A7CE51A212E81004C1463 /* FluidViewController.swift */,
 				707A7CC21A212DE9004C1463 /* AppDelegate.swift */,
 				707A7CC71A212DE9004C1463 /* ViewController.swift */,
@@ -214,7 +236,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				02CA536D1A2176B900FEBB1A /* KARMAFORM.ttf in Resources */,
 				707A7CCB1A212DE9004C1463 /* Main.storyboard in Resources */,
+				02CA536B1A21767400FEBB1A /* bartender icon.png in Resources */,
 				707A7CD01A212DEA004C1463 /* LaunchScreen.xib in Resources */,
 				707A7CCD1A212DE9004C1463 /* Images.xcassets in Resources */,
 			);
