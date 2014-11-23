@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		02CA536B1A21767400FEBB1A /* bartender icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 02CA536A1A21767400FEBB1A /* bartender icon.png */; };
-		02CA536F1A21822500FEBB1A /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 707A7CC11A212DE9004C1463 /* Info.plist */; };
 		02CA53701A2182AB00FEBB1A /* KARMAFORM.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 02CA53721A2182AB00FEBB1A /* KARMAFORM.ttf */; };
 		02CA53771A21B2F900FEBB1A /* olive-on-toothpick-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 02CA53761A21B2F900FEBB1A /* olive-on-toothpick-icon.png */; };
 		707A7CC31A212DE9004C1463 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 707A7CC21A212DE9004C1463 /* AppDelegate.swift */; };
@@ -257,7 +256,6 @@
 				B83B75B01A21C30000A17ECD /* drinkrecipes.txt in Resources */,
 				707A7CCB1A212DE9004C1463 /* Main.storyboard in Resources */,
 				B83B75AE1A21AA5300A17ECD /* DrinkCollectionViewCell.xib in Resources */,
-				02CA536F1A21822500FEBB1A /* Info.plist in Resources */,
 				02CA536B1A21767400FEBB1A /* bartender icon.png in Resources */,
 				707A7CD01A212DEA004C1463 /* LaunchScreen.xib in Resources */,
 				707A7CCD1A212DE9004C1463 /* Images.xcassets in Resources */,
