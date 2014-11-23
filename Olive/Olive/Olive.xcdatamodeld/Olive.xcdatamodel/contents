@@ -6,6 +6,7 @@
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="recipe" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="tips" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="userAdded" optional="YES" attributeType="Boolean" defaultValueString="NO" syncable="YES"/>
         <relationship name="ingredients" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Ingredient" inverseName="drink" inverseEntity="Ingredient" syncable="YES"/>
     </entity>
     <entity name="Ingredient" representedClassName="Ingredient" syncable="YES">
@@ -16,7 +17,7 @@
         <relationship name="drink" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Drink" inverseName="ingredients" inverseEntity="Drink" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Drink" positionX="-272" positionY="-18" width="128" height="133"/>
+        <element name="Drink" positionX="-272" positionY="-18" width="128" height="148"/>
         <element name="Ingredient" positionX="-45" positionY="36" width="128" height="118"/>
     </elements>
 </model>
