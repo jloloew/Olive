@@ -32,6 +32,7 @@ class DrinksTableViewController: UITableViewController, NSFetchedResultsControll
 	
 	func matchAccuracyForDrink(drink: Drink) -> Float {
 		
+        return 0;
 	}
 
     // MARK: - Table view data source
