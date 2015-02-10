@@ -111,9 +111,9 @@ class FluidViewController : UIViewController, UICollisionBehaviorDelegate, UIAcc
     func findColorsForImage(image: UIImage){
         var colorCluster : ColorCluster = ColorCluster()
         var topThree : NSMutableArray = kMean(image)
-        colorA = topThree[0] as UIColor
-        colorB = topThree[1] as UIColor
-        colorC = topThree[2] as UIColor
+        colorA = topThree[0] as! UIColor
+        colorB = topThree[1] as! UIColor
+        colorC = topThree[2] as! UIColor
     }
     
     
@@ -177,8 +177,8 @@ class FluidViewController : UIViewController, UICollisionBehaviorDelegate, UIAcc
         var n = 0
         for n = 0; n < 15; n++ {
             colorCluster.centers[n] = ColorCluster()
-            (colorCluster.centers[n] as ColorCluster).clusterCenter = UIColor(red: 0.5, green: 0.5, blue: 0.5, alpha: 0.5)
-            (colorCluster.centers[n] as ColorCluster).colorPoints = NSMutableArray()
+            (colorCluster.centers[n] as! ColorCluster).clusterCenter = UIColor(red: 0.5, green: 0.5, blue: 0.5, alpha: 0.5)
+            (colorCluster.centers[n] as! ColorCluster).colorPoints = NSMutableArray()
         }
         var dif : Float = 10000000000.0
         var smallestDif : Float = 1000000000.0
@@ -196,15 +196,15 @@ class FluidViewController : UIViewController, UICollisionBehaviorDelegate, UIAcc
                         pixelColor = UIColor(red: CGFloat(pixel[0])/255.0, green: CGFloat(pixel[1])/255.0, blue: CGFloat(pixel[2])/255.0, alpha: 1.0)
                         smallestDif = 10000.0
                         for var c = 0; c < 15; c++ {
-                            tempCluster = colorCluster.centers[c] as ColorCluster
+                            tempCluster = colorCluster.centers[c] as! ColorCluster
                             var distance : Float = colorCluster.calculateEuclideanDistance(pixelColor, newCenter: tempCluster.clusterCenter)
                             if (distance < smallestDif){
                                 smallestDif = distance
                                 index = c
                             }
                         }
-                        (colorCluster.centers[index] as ColorCluster).colorPoints.addObject(pixelColor)
-                        dif = (colorCluster.centers[index] as ColorCluster).updateClusterCenter()
+                        (colorCluster.centers[index] as! ColorCluster).colorPoints.addObject(pixelColor)
+                        dif = (colorCluster.centers[index] as! ColorCluster).updateClusterCenter()
                     }
                 }
             }
@@ -285,8 +285,8 @@ class ColorCluster {
             topThree.addObject(UIColor(red: 0.5, green: 0.5, blue: 0.5, alpha: 1.0))
         }
         for m = 0; m < k; m++ {
-            numberOfDataPointsInCluster = (centers[m] as ColorCluster).colorPoints.count
-            currentCluster = centers[m] as ColorCluster
+            numberOfDataPointsInCluster = (centers[m] as! ColorCluster).colorPoints.count
+            currentCluster = centers[m] as! ColorCluster
             if(numberOfDataPointsInCluster > one) {
                 three = two
                 topThree[2] = topThree[1]

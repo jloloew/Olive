@@ -12,7 +12,7 @@ import CoreData
 
 class DrinkRecipesParser {
 	
-	let managedObjectContext = (UIApplication.sharedApplication().delegate as AppDelegate).managedObjectContext!
+	let managedObjectContext = (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext!
 	
 	func hitIt() {
 		// make sure we only parse and add data once
@@ -66,16 +66,16 @@ class DrinkRecipesParser {
 				currentDrink = newDrink()
 			case "name":
 				if inIngredient {
-					currentIngredient.name = value
+					currentIngredient.name = value as! String
 				} else {
-					currentDrink.name = value
+					currentDrink.name = value as! String
 				}
 			case "icon":
 				if inIngredient {
 					//TODO: add icons to ingredients
 				} else {
                     println(value)
-                    var image = UIImage(named: value)
+                    var image = UIImage(named: value as! String)
                     println(image)
                     if(image != nil){
                         currentDrink.icon = UIImagePNGRepresentation(image!)
@@ -103,7 +103,7 @@ class DrinkRecipesParser {
 				currentIngredient = nil
 			case "EndDrink":
 				//TODO: save the drink
-                currentDrink.ingredients = currentIngredients.copy() as NSSet
+                currentDrink.ingredients = currentIngredients.copy() as! NSSet
 				currentDrink = nil
 			default:
 				println("Unknown key while parsing recipes file: \(key)")

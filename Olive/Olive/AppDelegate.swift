@@ -56,7 +56,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     lazy var applicationDocumentsDirectory: NSURL = {
         // The directory the application uses to store the Core Data store file. This code uses a directory named "Olive.Olive" in the application's documents Application Support directory.
         let urls = NSFileManager.defaultManager().URLsForDirectory(.DocumentDirectory, inDomains: .UserDomainMask)
-        return urls[urls.count-1] as NSURL
+        return urls[urls.count-1] as! NSURL
     }()
 
     lazy var managedObjectModel: NSManagedObjectModel = {
@@ -75,11 +75,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         if coordinator!.addPersistentStoreWithType(NSSQLiteStoreType, configuration: nil, URL: url, options: nil, error: &error) == nil {
             coordinator = nil
             // Report any error we got.
-            let dict = NSMutableDictionary()
+			var dict = [NSObject : AnyObject]()
             dict[NSLocalizedDescriptionKey] = "Failed to initialize the application's saved data"
             dict[NSLocalizedFailureReasonErrorKey] = failureReason
             dict[NSUnderlyingErrorKey] = error
-            error = NSError(domain: "YOUR_ERROR_DOMAIN", code: 9999, userInfo: dict)
+			error = NSError(domain: "YOUR_ERROR_DOMAIN", code: 9999, userInfo: dict)
             // Replace this with code to handle the error appropriately.
             // abort() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
             NSLog("Unresolved error \(error), \(error!.userInfo)")
@@ -131,7 +131,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 		}
 		
 		// filter out the ingredients we don't have
-		var ingredients = NSMutableSet(array: frc.fetchedObjects! as [Ingredient])
+		var ingredients = NSMutableSet(array: frc.fetchedObjects! as! [Ingredient])
 		ingredients.enumerateObjectsUsingBlock { (ingredient, shouldStopPtr) -> Void in
 			if let ing = ingredient as? Ingredient {
 				if ing.quantityPosessed.floatValue < 0.01 {
@@ -140,7 +140,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 			}
 		}
 		
-		return ingredients.allObjects as [Ingredient]
+		return ingredients.allObjects as! [Ingredient]
 	}
 	
 	func fetchAllIngredients() -> [Ingredient] {
@@ -155,7 +155,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 			return [Ingredient]()
 		}
 		
-		return frc.fetchedObjects! as [Ingredient]
+		return frc.fetchedObjects! as! [Ingredient]
 	}
 }
 
@@ -163,9 +163,9 @@ func matchAccuracyForDrink(drink: Drink) -> Float {
 		// get the total value of the importances all the ingredients needed
 		var sumNeeded = Float(0.0)
 		var sumPosessed = Float(0.0)
-		let ourIngredients = (UIApplication.sharedApplication().delegate as AppDelegate).fetchIngredientsPosessed()
+		let ourIngredients = (UIApplication.sharedApplication().delegate as! AppDelegate).fetchIngredientsPosessed()
 		for i in drink.ingredients {
-			let ingredient = i as Ingredient
+			let ingredient = i as! Ingredient
 			
 			sumNeeded += ingredient.importance.floatValue
 			

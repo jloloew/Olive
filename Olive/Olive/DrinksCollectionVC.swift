@@ -19,14 +19,14 @@ class DrinksCollectionViewController: UICollectionViewController, NSFetchedResul
     var chosenDrink : Drink!
     var imageForDrink : UIImage?
     
-	let managedObjectContext = (UIApplication.sharedApplication().delegate as AppDelegate).managedObjectContext!
+	let managedObjectContext = (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext!
 
     override func viewDidLoad() {
         super.viewDidLoad()
         DrinkRecipesParser().hitIt()
         
         // Register cell classes
-        self.collectionView.registerClass(DrinkCollectionViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)
+        self.collectionView!.registerClass(DrinkCollectionViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)
 
         // Do any additional setup after loading the view.
 		let fetchRequest = NSFetchRequest(entityName: "Drink")
@@ -44,13 +44,13 @@ class DrinksCollectionViewController: UICollectionViewController, NSFetchedResul
         let layout: UICollectionViewFlowLayout = UICollectionViewFlowLayout()
         layout.sectionInset = UIEdgeInsets(top: 20, left: 10, bottom: 10, right: 10)
         layout.itemSize = CGSize(width: 90, height: 90)
-        collectionView = UICollectionView(frame: self.view.frame, collectionViewLayout: layout)
+		collectionView = UICollectionView(frame: self.view.frame, collectionViewLayout: layout)
         
-        collectionView.dataSource = self
-        collectionView.delegate = self
-        collectionView.registerClass(DrinkCollectionViewCell.self, forCellWithReuseIdentifier: "DrinkCells")
-        collectionView.backgroundColor = UIColor.blackColor()
-        self.view.addSubview(collectionView)
+        collectionView!.dataSource = self
+        collectionView!.delegate = self
+        collectionView!.registerClass(DrinkCollectionViewCell.self, forCellWithReuseIdentifier: "DrinkCells")
+        collectionView!.backgroundColor = UIColor.blackColor()
+        self.view.addSubview(collectionView!)
     }
 
     /*
@@ -80,16 +80,16 @@ class DrinksCollectionViewController: UICollectionViewController, NSFetchedResul
     override func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         DrinkRecipesParser().hitIt()
 
-        let cell = collectionView.dequeueReusableCellWithReuseIdentifier("DrinkCells", forIndexPath: indexPath) as DrinkCollectionViewCell
+        let cell = collectionView.dequeueReusableCellWithReuseIdentifier("DrinkCells", forIndexPath: indexPath) as! DrinkCollectionViewCell
         
         
-        var data = (fetchedResultsController.fetchedObjects?[indexPath.item] as Drink).icon
+        var data = (fetchedResultsController.fetchedObjects?[indexPath.item] as! Drink).icon
         cell.icon.image = UIImage(data:data)!
         println(cell.icon.image)
-        cell.drink = (fetchedResultsController.fetchedObjects?[indexPath.item] as Drink)
-        cell.drinkName.text = (fetchedResultsController.fetchedObjects?[indexPath.item] as Drink).name
+        cell.drink = (fetchedResultsController.fetchedObjects?[indexPath.item] as! Drink)
+        cell.drinkName.text = (fetchedResultsController.fetchedObjects?[indexPath.item] as! Drink).name
         cell.drinkName.textColor = UIColor.whiteColor()
-        cell.drinkMatch.text = "\(matchAccuracyForDrink(fetchedResultsController.fetchedObjects?[indexPath.item] as Drink))% match"
+        cell.drinkMatch.text = "\(matchAccuracyForDrink(fetchedResultsController.fetchedObjects?[indexPath.item] as! Drink))% match"
         cell.backgroundColor = UIColor.redColor()
         
         return cell
@@ -97,7 +97,7 @@ class DrinksCollectionViewController: UICollectionViewController, NSFetchedResul
     
 
     override func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
-        chosenDrink = (fetchedResultsController.fetchedObjects?[indexPath.item] as Drink)
+        chosenDrink = (fetchedResultsController.fetchedObjects?[indexPath.item] as! Drink)
         imageForDrink = UIImage(data: chosenDrink.icon)
         performSegueWithIdentifier("showDetail", sender: self)
         println(chosenDrink.name)
@@ -131,7 +131,7 @@ class DrinksCollectionViewController: UICollectionViewController, NSFetchedResul
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if(segue.identifier == "showDetail"){
-            var dest : FluidViewController = (segue.destinationViewController as FluidViewController)
+            var dest : FluidViewController = (segue.destinationViewController as! FluidViewController)
             dest.drink = chosenDrink
         }
     }

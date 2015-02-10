@@ -12,7 +12,7 @@ import CoreData
 class IngredientsTableViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, NSFetchedResultsControllerDelegate {
 	
 	var fetchedResultsController = NSFetchedResultsController()
-	let managedObjectContext = (UIApplication.sharedApplication().delegate as AppDelegate).managedObjectContext!
+	let managedObjectContext = (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext!
 	
 //	@IBOutlet var searchDisplayController: UISearchDisplayController!
 	@IBOutlet var tableView: UITableView!
@@ -88,15 +88,15 @@ class IngredientsTableViewController: UIViewController, UITableViewDelegate, UIT
     }
 
      func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        let retVal = (UIApplication.sharedApplication().delegate as AppDelegate).fetchAllIngredients().count
+        let retVal = (UIApplication.sharedApplication().delegate as! AppDelegate).fetchAllIngredients().count
 		return retVal
     }
 
      func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("IngredientCell", forIndexPath: indexPath) as UITableViewCell
+        let cell = tableView.dequeueReusableCellWithIdentifier("IngredientCell", forIndexPath: indexPath) as! UITableViewCell
 		
-		let ingredient = (UIApplication.sharedApplication().delegate as AppDelegate).fetchAllIngredients()[indexPath.item] as Ingredient
-        cell.textLabel.text = ingredient.name
+		let ingredient = (UIApplication.sharedApplication().delegate as! AppDelegate).fetchAllIngredients()[indexPath.item] as Ingredient
+        cell.textLabel?.text = ingredient.name
 		cell.detailTextLabel?.text = "\(ingredient.quantityPosessed) oz."
 		
 		// add checkmark if necessary
